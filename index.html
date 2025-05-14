@@ -26,7 +26,6 @@
                 const xslFilename = 'presentation.xsl';
                 
                 console.log("Attempting to load XML:", xmlFilename);
-                console.log("Attempting to load XSL:", xslFilename);
                 
                 // Load the XML and XSL files
                 const xmlRequest = new XMLHttpRequest();
@@ -39,6 +38,7 @@
                     console.error("Failed to load XML:", xmlRequest.statusText);
                 }
                 
+                console.log("Attempting to load XSL:", xslFilename);
                 const xslRequest = new XMLHttpRequest();
                 xslRequest.open('GET', xslFilename, false);
                 xslRequest.send();
@@ -73,6 +73,7 @@
                 if (titleNode && titleNode.textContent) {
                     document.title = titleNode.textContent;
                 }
+                console.log("Presentation title:", titleNode.textContent);
                 
                 // Replace the loading spinner with the transformed content
                 console.log("Transformation complete, updating content");
@@ -81,7 +82,7 @@
                 mainContent.appendChild(resultDoc);
 
                 // Hide loading spinner
-                //document.getElementById('loading-spinner').style.display = 'none';
+                console.log("Hiding spinner");
                 const spinner = document.getElementById('loading-spinner');
                 if (spinner) {
                     spinner.style.display = 'none';
