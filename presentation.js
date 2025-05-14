@@ -2,7 +2,47 @@
  * Presentation.js - JavaScript for Bootstrap-based XML/XSL presentations
  */
 
+// Wait for full page load, not just DOM
+window.addEventListener('load', function() {
+    console.log("WINDOW LOAD event - presentation.js executing");
+    initPresentation();
+});
+
+function initPresentation() {
+    // Initialize presentation
+    const slidesContainer = document.getElementById('slides-container');
+    if (!slidesContainer) {
+        console.error("Slides container not found!");
+        return;
+    }
+    
+    const slides = Array.from(slidesContainer.children);
+    let currentSlideIndex = 0;
+    
+    console.log("Found", slides.length, "slides");
+    
+    // Directly bind click events to navigation buttons
+    document.getElementById('prev').onclick = previousSlide;
+    document.getElementById('next').onclick = nextSlide;
+    document.getElementById('fullscreen').onclick = toggleFullscreen;
+    document.getElementById('speaker-notes').onclick = toggleSpeakerNotes;
+    document.getElementById('close-notes').onclick = toggleSpeakerNotes;
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', handleKeyboardNavigation);
+    
+    // Show first slide
+    if (slides.length > 0) {
+        goToSlide(0);
+    }
+};
+
 console.log("==== Presentation.js loaded and executing ====");
+
+// Add global onerror handler
+window.onerror = function(message, source, lineno, colno, error) {
+    console.error("Error in presentation.js:", message, "at", source, "line:", lineno, error);
+};
 
 // Debug DOM structure
 console.log("Document body:", document.body);
@@ -30,9 +70,11 @@ function highlightElements() {
 }
 
 // Run this after a short delay to ensure DOM is processed
-setTimeout(highlightElements, 1000);
+//setTimeout(highlightElements, 1000);
 
 document.addEventListener('DOMContentLoaded', function() {
+    console.log("Enter document.addEventListener");
+
     // Initialize presentation
     const slidesContainer = document.getElementById('slides-container');
     const slides = Array.from(slidesContainer.children);

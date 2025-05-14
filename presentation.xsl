@@ -2,95 +2,54 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="html" encoding="UTF-8" indent="yes" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/>
   
-  <!-- Root template for the entire presentation -->
+
+  <!-- Root template for the presentation content only (no html/head/body tags) -->
   <xsl:template match="/">
-    <html lang="en">
-      <xsl:if test="presentation/@theme">
-        <xsl:attribute name="data-bs-theme">
-          <xsl:value-of select="presentation/@theme"/>
-        </xsl:attribute>
-      </xsl:if>
-      <head>
-        <title><xsl:value-of select="presentation/metadata/title"/></title>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
-        <!-- Custom presentation CSS -->
-        <link rel="stylesheet" href="presentation-custom.css"/>
-        <style>
-          <xsl:call-template name="generate-dynamic-styles"/>
-        </style>
-      </head>
-      <body>
-        <div class="presentation-container">
-          <!-- Slides container -->
-          <div id="slides-container" class="position-relative h-100">
-            <xsl:apply-templates select="presentation/slide"/>
-          </div>
-          
-          <!-- Navigation controls -->
-          <div class="controls position-absolute bottom-0 start-50 translate-middle-x d-flex align-items-center gap-2 mb-4 py-2 px-3 rounded-pill bg-body-tertiary shadow-sm">
-            <button id="prev" class="btn btn-primary rounded-circle" aria-label="Previous slide">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-              </svg>
-            </button>
-            <span id="slide-counter" class="text-body fw-medium mx-2">1 / <xsl:value-of select="count(presentation/slide)"/></span>
-            <button id="next" class="btn btn-primary rounded-circle" aria-label="Next slide">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-              </svg>
-            </button>
-            <button id="fullscreen" class="btn btn-outline-secondary rounded-circle ms-2" aria-label="Toggle fullscreen">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-fullscreen" viewBox="0 0 16 16">
-                <path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1h-4zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5zM.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5z"/>
-              </svg>
-            </button>
-            <button id="speaker-notes" class="btn btn-outline-secondary rounded-circle" aria-label="Toggle speaker notes">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sticky" viewBox="0 0 16 16">
-                <path d="M2.5 1A1.5 1.5 0 0 0 1 2.5v11A1.5 1.5 0 0 0 2.5 15h6.086a1.5 1.5 0 0 0 1.06-.44l4.915-4.914A1.5 1.5 0 0 0 15 8.586V2.5A1.5 1.5 0 0 0 13.5 1h-11zM2 2.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 .5.5V8H9.5A1.5 1.5 0 0 0 8 9.5V14H2.5a.5.5 0 0 1-.5-.5v-11zm7 11.293V9.5a.5.5 0 0 1 .5-.5h4.293L9 13.793z"/>
-              </svg>
-            </button>
-          </div>
-          
-          <!-- Progress bar -->
-          <div class="progress position-absolute bottom-0 start-0 w-100" style="height: 4px; z-index: 10;">
-            <div class="progress-bar bg-primary" role="progressbar" style="width: 0%"></div>
-          </div>
-          
-          <!-- Speaker notes panel (hidden by default) -->
-          <div id="speaker-notes-panel" class="card position-fixed bottom-0 end-0 w-25 h-40 hidden" style="z-index: 20; display: none;">
-            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-              <h6 class="m-0">Speaker Notes</h6>
-              <button id="close-notes" class="btn-close btn-close-white" aria-label="Close"></button>
-            </div>
-            <div id="current-notes" class="card-body overflow-auto"></div>
-          </div>
+    <div class="presentation-container">
+      <!-- Slides container -->
+      <div id="slides-container" class="position-relative h-100">
+        <xsl:apply-templates select="presentation/slide"/>
+      </div>
+      
+      <!-- Navigation controls -->
+      <div class="controls position-absolute bottom-0 start-50 translate-middle-x d-flex align-items-center gap-2 mb-4 py-2 px-3 rounded-pill bg-body-tertiary shadow-sm">
+        <button id="prev" class="btn btn-primary rounded-circle" aria-label="Previous slide">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+          </svg>
+        </button>
+        <span id="slide-counter" class="text-body fw-medium mx-2">1 / <xsl:value-of select="count(presentation/slide)"/></span>
+        <button id="next" class="btn btn-primary rounded-circle" aria-label="Next slide">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+          </svg>
+        </button>
+        <button id="fullscreen" class="btn btn-outline-secondary rounded-circle ms-2" aria-label="Toggle fullscreen">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-fullscreen" viewBox="0 0 16 16">
+            <path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1h-4zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5zM.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5z"/>
+          </svg>
+        </button>
+        <button id="speaker-notes" class="btn btn-outline-secondary rounded-circle" aria-label="Toggle speaker notes">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sticky" viewBox="0 0 16 16">
+            <path d="M2.5 1A1.5 1.5 0 0 0 1 2.5v11A1.5 1.5 0 0 0 2.5 15h6.086a1.5 1.5 0 0 0 1.06-.44l4.915-4.914A1.5 1.5 0 0 0 15 8.586V2.5A1.5 1.5 0 0 0 13.5 1h-11zM2 2.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 .5.5V8H9.5A1.5 1.5 0 0 0 8 9.5V14H2.5a.5.5 0 0 1-.5-.5v-11zm7 11.293V9.5a.5.5 0 0 1 .5-.5h4.293L9 13.793z"/>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Progress bar -->
+      <div class="progress position-absolute bottom-0 start-0 w-100" style="height: 5px; z-index: 10;">
+        <div class="progress-bar bg-primary" role="progressbar" style="width: 0%"></div>
+      </div>
+      
+      <!-- Speaker notes panel (hidden by default) -->
+      <div id="speaker-notes-panel" class="card position-fixed bottom-0 end-0 w-25 h-40 hidden" style="z-index: 20; display: none;">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+          <h6 class="m-0">Speaker Notes</h6>
+          <button id="close-notes" class="btn-close btn-close-white" aria-label="Close"></button>
         </div>
-        
-        <!-- Bootstrap Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="presentation.js"></script>
-      </body>
-    </html>
-  </xsl:template>
-  
-  <!-- Template for dynamic CSS based on brand colors -->
-  <xsl:template name="generate-dynamic-styles">
-    <xsl:if test="presentation/metadata/brand">
-      :root {
-        <xsl:for-each select="presentation/metadata/brand/color">
-          <xsl:choose>
-            <xsl:when test="@name='primary'">--bs-primary: <xsl:value-of select="."/>;</xsl:when>
-            <xsl:when test="@name='secondary'">--bs-secondary: <xsl:value-of select="."/>;</xsl:when>
-            <xsl:when test="@name='accent'">--bs-info: <xsl:value-of select="."/>;</xsl:when>
-            <xsl:when test="@name='text'">--bs-body-color: <xsl:value-of select="."/>;</xsl:when>
-            <xsl:when test="@name='background'">--bs-body-bg: <xsl:value-of select="."/>;</xsl:when>
-          </xsl:choose>
-        </xsl:for-each>
-      }
-    </xsl:if>
+        <div id="current-notes" class="card-body overflow-auto"></div>
+      </div>
+    </div>
   </xsl:template>
   
   <!-- Template for individual slides -->

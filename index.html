@@ -13,10 +13,16 @@
     <script>
         window.addEventListener('DOMContentLoaded', function() {
             console.log("DOM loaded, beginning XML processing");
+
+            // Add this at the beginning of your DOMContentLoaded event in index.html
+            window.onerror = function(message, source, lineno, colno, error) {
+                console.error("Global error caught:", message, "at", source, ":", lineno);
+                return false;
+            };
             
             try {
                 // Show what files we're trying to load
-                const xmlFilename = 'investor-pitch.xml'; // Change this to match your file
+                const xmlFilename = 'investor-pitch.xml';
                 const xslFilename = 'presentation.xsl';
                 
                 console.log("Attempting to load XML:", xmlFilename);
@@ -52,61 +58,94 @@
                 const processor = new XSLTProcessor();
                 processor.importStylesheet(xslDoc);
                 const resultDoc = processor.transformToFragment(xmlDoc, document);
-                console.log("Transformation result:", resultDoc);
-                console.log("Transformation HTML:", resultDoc.firstChild);
-                // After transformation, before appending to document
-                console.log("Examining all childNodes in resultDoc:");
-                for (let i = 0; i < resultDoc.childNodes.length; i++) {
-                    const node = resultDoc.childNodes[i];
-                    console.log(`Node ${i}:`, {
-                        nodeType: node.nodeType, 
-                        nodeName: node.nodeName,
-                        nodeValue: node.nodeValue ? node.nodeValue.substring(0, 50) : null,
-                        hasChildNodes: node.hasChildNodes ? node.hasChildNodes() : false,
-                        childNodeCount: node.childNodes ? node.childNodes.length : 0
-                    });
-                }
-                // Check for main HTML elements
-                const htmlElement = resultDoc.querySelector('html');
-                const bodyElement = resultDoc.querySelector('body');
-                const divElements = resultDoc.querySelectorAll('div');
-
-                console.log("Found in resultDoc:", {
-                    htmlElement: !!htmlElement,
-                    bodyElement: !!bodyElement,
-                    divCount: divElements.length,
-                    firstDiv: divElements[0] ? divElements[0].outerHTML.substring(0, 100) : null
-                });
                 
-                // Replace the loading message with the transformed content
-                console.log("Transformation complete, updating DOM");
-                document.body.innerHTML = '';
-                document.body.appendChild(resultDoc);
+                // Get theme attribute from XML for Bootstrap theme
+                const presentationNode = xmlDoc.querySelector('presentation');
+                const theme = presentationNode ? presentationNode.getAttribute('theme') : 'light';
+                
+                if (theme) {
+                    document.documentElement.setAttribute('data-bs-theme', theme);
+                    console.log("Applied theme:", theme);
+                }
+                
+                // Get presentation title
+                const titleNode = xmlDoc.querySelector('presentation > metadata > title');
+                if (titleNode && titleNode.textContent) {
+                    document.title = titleNode.textContent;
+                }
+                
+                // Replace the loading spinner with the transformed content
+                console.log("Transformation complete, updating content");
+                const mainContent = document.getElementById('presentation-content');
+                mainContent.innerHTML = '';
+                mainContent.appendChild(resultDoc);
+
+                // Hide loading spinner
+                //document.getElementById('loading-spinner').style.display = 'none';
+                const spinner = document.getElementById('loading-spinner');
+                if (spinner) {
+                    spinner.style.display = 'none';
+                    spinner.style.visibility = 'hidden';
+                    //spinner.classList.add('d-none'); // Bootstrap's display none utility
+                }
+
+                // Apply any dynamic styles from the presentation
+                const brandNode = xmlDoc.querySelector('presentation > metadata > brand');
+                if (brandNode) {
+                    const dynamicStyles = document.createElement('style');
+                    let cssVars = ':root {\n';
+                    
+                    const colorNodes = brandNode.querySelectorAll('color');
+                    colorNodes.forEach(colorNode => {
+                        const name = colorNode.getAttribute('name');
+                        const value = colorNode.textContent;
+                        
+                        if (name && value) {
+                            switch(name) {
+                                case 'primary': cssVars += '  --bs-primary: ' + value + ';\n'; break;
+                                case 'secondary': cssVars += '  --bs-secondary: ' + value + ';\n'; break;
+                                case 'accent': cssVars += '  --bs-info: ' + value + ';\n'; break;
+                                case 'text': cssVars += '  --bs-body-color: ' + value + ';\n'; break;
+                                case 'background': cssVars += '  --bs-body-bg: ' + value + ';\n'; break;
+                            }
+                        }
+                    });
+                    
+                    cssVars += '}';
+                    dynamicStyles.textContent = cssVars;
+                    document.head.appendChild(dynamicStyles);
+                    console.log("Applied dynamic styles");
+                }
                 
                 // Load presentation JavaScript
                 console.log("Loading presentation.js");
                 const script = document.createElement('script');
                 script.src = 'presentation.js';
                 script.onload = function() {
-                    console.log("presentation.js loaded successfully");
-                };
-                script.onerror = function() {
-                    console.error("Failed to load presentation.js");
+                    console.log("presentation.js has loaded successfully");
                 };
                 document.body.appendChild(script);
             } catch (error) {
                 console.error("Error in presentation processing:", error);
-                document.body.innerHTML = '<div class="container mt-5"><div class="alert alert-danger">' + 
-                                         '<h4>Error Loading Presentation</h4>' +
-                                         '<p>' + error.message + '</p>' +
-                                         '<p>Check the console for more details.</p>' +
-                                         '</div></div>';
+                document.getElementById('loading-spinner').style.display = 'none';
+                document.getElementById('loading-spinner').style.visibility =
+                    'hidden';
+                document.getElementById('presentation-content').innerHTML = `
+                    <div class="container mt-5">
+                        <div class="alert alert-danger">
+                            <h4>Error Loading Presentation</h4>
+                            <p>${error.message}</p>
+                            <p>Check the console for more details.</p>
+                        </div>
+                    </div>
+                `;
             }
         });
     </script>
 </head>
 <body>
-    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <!-- Loading spinner -->
+    <div id="loading-spinner" class="container d-flex justify-content-center align-items-center min-vh-100">
         <div class="text-center">
             <div class="spinner-border text-primary mb-3" role="status">
                 <span class="visually-hidden">Loading...</span>
@@ -115,5 +154,11 @@
             <p class="text-muted">Please wait while the presentation is being prepared.</p>
         </div>
     </div>
+    
+    <!-- Presentation content will be inserted here -->
+    <div id="presentation-content"></div>
+    
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

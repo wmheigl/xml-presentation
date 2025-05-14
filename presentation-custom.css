@@ -22,9 +22,9 @@
 
 /* Active slide */
 .slide.active {
-  opacity: 1;
+  opacity: 1 !important;
   pointer-events: auto;
-  z-index: 1;
+  z-index: 1 !important;
 }
 
 /* Slide transitions */
