@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML/XSL Presentation with Bootstrap</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom presentation styles -->
+    <link rel="stylesheet" href="presentation-custom.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            console.log("DOM loaded, beginning XML processing");
+            
+            try {
+                // Show what files we're trying to load
+                const xmlFilename = 'investor-pitch.xml'; // Change this to match your file
+                const xslFilename = 'presentation.xsl';
+                
+                console.log("Attempting to load XML:", xmlFilename);
+                console.log("Attempting to load XSL:", xslFilename);
+                
+                // Load the XML and XSL files
+                const xmlRequest = new XMLHttpRequest();
+                xmlRequest.open('GET', xmlFilename, false);
+                xmlRequest.send();
+                
+                if (xmlRequest.status === 200 || xmlRequest.status === 0) {
+                    console.log("XML loaded successfully");
+                } else {
+                    console.error("Failed to load XML:", xmlRequest.statusText);
+                }
+                
+                const xslRequest = new XMLHttpRequest();
+                xslRequest.open('GET', xslFilename, false);
+                xslRequest.send();
+                
+                if (xslRequest.status === 200 || xslRequest.status === 0) {
+                    console.log("XSL loaded successfully");
+                } else {
+                    console.error("Failed to load XSL:", xslRequest.statusText);
+                }
+                
+                // Transform the XML using the XSL
+                console.log("Beginning transformation");
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(xmlRequest.responseText, 'text/xml');
+                const xslDoc = parser.parseFromString(xslRequest.responseText, 'text/xml');
+                
+                const processor = new XSLTProcessor();
+                processor.importStylesheet(xslDoc);
+                const resultDoc = processor.transformToFragment(xmlDoc, document);
+                console.log("Transformation result:", resultDoc);
+                console.log("Transformation HTML:", resultDoc.firstChild);
+                // After transformation, before appending to document
+                console.log("Examining all childNodes in resultDoc:");
+                for (let i = 0; i < resultDoc.childNodes.length; i++) {
+                    const node = resultDoc.childNodes[i];
+                    console.log(`Node ${i}:`, {
+                        nodeType: node.nodeType, 
+                        nodeName: node.nodeName,
+                        nodeValue: node.nodeValue ? node.nodeValue.substring(0, 50) : null,
+                        hasChildNodes: node.hasChildNodes ? node.hasChildNodes() : false,
+                        childNodeCount: node.childNodes ? node.childNodes.length : 0
+                    });
+                }
+                // Check for main HTML elements
+                const htmlElement = resultDoc.querySelector('html');
+                const bodyElement = resultDoc.querySelector('body');
+                const divElements = resultDoc.querySelectorAll('div');
+
+                console.log("Found in resultDoc:", {
+                    htmlElement: !!htmlElement,
+                    bodyElement: !!bodyElement,
+                    divCount: divElements.length,
+                    firstDiv: divElements[0] ? divElements[0].outerHTML.substring(0, 100) : null
+                });
+                
+                // Replace the loading message with the transformed content
+                console.log("Transformation complete, updating DOM");
+                document.body.innerHTML = '';
+                document.body.appendChild(resultDoc);
+                
+                // Load presentation JavaScript
+                console.log("Loading presentation.js");
+                const script = document.createElement('script');
+                script.src = 'presentation.js';
+                script.onload = function() {
+                    console.log("presentation.js loaded successfully");
+                };
+                script.onerror = function() {
+                    console.error("Failed to load presentation.js");
+                };
+                document.body.appendChild(script);
+            } catch (error) {
+                console.error("Error in presentation processing:", error);
+                document.body.innerHTML = '<div class="container mt-5"><div class="alert alert-danger">' + 
+                                         '<h4>Error Loading Presentation</h4>' +
+                                         '<p>' + error.message + '</p>' +
+                                         '<p>Check the console for more details.</p>' +
+                                         '</div></div>';
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="text-center">
+            <div class="spinner-border text-primary mb-3" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <h2 class="h4 mb-3">Loading presentation...</h2>
+            <p class="text-muted">Please wait while the presentation is being prepared.</p>
+        </div>
+    </div>
+</body>
+</html>

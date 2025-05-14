@@ -1,0 +1,195 @@
+/* Custom presentation styles for Bootstrap-based slides */
+
+/* Presentation container */
+.presentation-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Slide styles */
+.slide {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 0;
+  background-color: var(--bs-body-bg);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+/* Active slide */
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 1;
+}
+
+/* Slide transitions */
+.slide[data-transition="none"] {
+  transition: opacity 0.1s;
+}
+
+.slide[data-transition="fade"] {
+  transition: opacity 0.5s ease;
+}
+
+.slide[data-transition="slide"] {
+  transform: translateX(100%);
+}
+
+.slide[data-transition="slide"].active {
+  transform: translateX(0);
+}
+
+.slide[data-transition="zoom"] {
+  transform: scale(0.5);
+  opacity: 0;
+}
+
+.slide[data-transition="zoom"].active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Speaker notes panel */
+#speaker-notes-panel.hidden {
+  display: none !important;
+}
+
+/* Chart styles - ensuring proper size and spacing */
+.chart {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Loading indicator for charts */
+.chart::before {
+  content: "Loading chart...";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--bs-secondary-color);
+  font-style: italic;
+}
+
+.chart.loaded::before {
+  display: none;
+}
+
+/* Specific slide type styling */
+.slide[data-slide-type="title"] h1,
+.slide[data-slide-type="section"] h1 {
+  margin-bottom: 1.5rem;
+}
+
+.slide[data-slide-type="title"] .slide-content,
+.slide[data-slide-type="section"] .slide-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.slide[data-slide-type="quote"] blockquote {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Slide animation for content */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slide.active .slide-content > * {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* Ensuring slide content is properly spaced */
+.slide-content > * {
+  opacity: 0;
+}
+
+.slide.active .slide-content > *:nth-child(1) { animation-delay: 0.1s; }
+.slide.active .slide-content > *:nth-child(2) { animation-delay: 0.2s; }
+.slide.active .slide-content > *:nth-child(3) { animation-delay: 0.3s; }
+.slide.active .slide-content > *:nth-child(4) { animation-delay: 0.4s; }
+.slide.active .slide-content > *:nth-child(5) { animation-delay: 0.5s; }
+.slide.active .slide-content > *:nth-child(6) { animation-delay: 0.6s; }
+.slide.active .slide-content > *:nth-child(7) { animation-delay: 0.7s; }
+.slide.active .slide-content > *:nth-child(8) { animation-delay: 0.8s; }
+
+/* Font adjustments for better readability in presentations */
+.slide {
+  font-size: 1.1rem;
+}
+
+.slide h1, .slide h2 {
+  line-height: 1.2;
+}
+
+/* Utility classes for presentations */
+.slide-center-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .slide {
+    padding: 1rem !important;
+  }
+  
+  .slide h1 {
+    font-size: 2rem !important;
+  }
+  
+  .slide h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  .controls {
+    bottom: 10px !important;
+  }
+  
+  #speaker-notes-panel {
+    width: 100% !important;
+    height: 30% !important;
+  }
+}
+
+/* Print styles for PDF export */
+@media print {
+  .slide {
+    opacity: 1 !important;
+    position: relative !important;
+    page-break-after: always;
+    height: auto !important;
+  }
+  
+  .controls, .progress, #speaker-notes-panel {
+    display: none !important;
+  }
+  
+  .presentation-container {
+    position: static !important;
+    overflow: visible !important;
+  }
+  
+  #slides-container {
+    height: auto !important;
+    overflow: visible !important;
+  }
+}

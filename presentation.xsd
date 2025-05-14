@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  
+  <!-- Root element for the presentation -->
+  <xs:element name="presentation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="metadata" type="metadataType" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="slide" type="slideType" minOccurs="1" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:ID" use="required"/>
+      <!-- Bootstrap theme support -->
+      <xs:attribute name="theme" type="themeType" default="light"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- Metadata about the presentation -->
+  <xs:complexType name="metadataType">
+    <xs:sequence>
+      <xs:element name="title" type="xs:string"/>
+      <xs:element name="author" type="xs:string" minOccurs="0"/>
+      <xs:element name="date" type="xs:date" minOccurs="0"/>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element name="brand" type="brandType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- Brand colors definition -->
+  <xs:complexType name="brandType">
+    <xs:sequence>
+      <xs:element name="color" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="name" use="required">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="primary"/>
+                    <xs:enumeration value="secondary"/>
+                    <xs:enumeration value="accent"/>
+                    <xs:enumeration value="text"/>
+                    <xs:enumeration value="background"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:attribute>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- Individual slide definition -->
+  <xs:complexType name="slideType">
+    <xs:sequence>
+      <xs:element name="title" type="xs:string"/>
+      <xs:element name="content" type="contentType"/>
+      <xs:element name="notes" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:ID" use="required"/>
+    <xs:attribute name="type" type="slideTypeEnum" default="standard"/>
+    <xs:attribute name="transition" type="transitionType" default="slide"/>
+    <!-- Bootstrap-specific classes (optional) -->
+    <xs:attribute name="class" type="xs:string" use="optional"/>
+  </xs:complexType>
+  
+  <!-- Content within a slide -->
+  <xs:complexType name="contentType" mixed="true">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="p" type="richTextType"/>
+      <xs:element name="list" type="listType"/>
+      <xs:element name="image" type="imageType" minOccurs="0"/>
+      <xs:element name="quote" type="quoteType" minOccurs="0"/>
+      <xs:element name="chart" type="chartType" minOccurs="0"/>
+      <xs:element name="code" type="codeType" minOccurs="0"/>
+      <xs:element name="table" type="tableType" minOccurs="0"/>
+      <!-- Bootstrap-specific elements -->
+      <xs:element name="row" type="rowType" minOccurs="0"/>
+      <xs:element name="alert" type="alertType" minOccurs="0"/>
+      <xs:element name="card" type="cardType" minOccurs="0"/>
+    </xs:choice>
+  </xs:complexType>
+  
+  <!-- Rich text type for paragraphs and list items -->
+  <xs:complexType name="richTextType" mixed="true">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="em" type="xs:string"/>
+      <xs:element name="strong" type="xs:string"/>
+      <xs:element name="code" type="xs:string"/>
+      <xs:element name="a">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="href" type="xs:anyURI" use="required"/>
+              <!-- Bootstrap classes -->
+              <xs:attribute name="class" type="xs:string"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <!-- Bootstrap inline elements -->
+      <xs:element name="badge" type="badgeType" minOccurs="0"/>
+    </xs:choice>
+    <!-- Optional Bootstrap classes -->
+    <xs:attribute name="class" type="xs:string"/>
+  </xs:complexType>
+  
+  <!-- List type -->
+  <xs:complexType name="listType">
+    <xs:sequence>
+      <xs:element name="item" type="richTextType" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="type">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="bullet"/>
+          <xs:enumeration value="numbered"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <!-- Optional Bootstrap classes -->
+    <xs:attribute name="class" type="xs:string"/>
+  </xs:complexType>
+  
+  <!-- Image definition -->
+  <xs:complexType name="imageType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="src" type="xs:anyURI" use="required"/>
+        <xs:attribute name="alt" type="xs:string" use="required"/>
+        <xs:attribute name="width" type="xs:string"/>
+        <xs:attribute name="height" type="xs:string"/>
+        <!-- Bootstrap image classes -->
+        <xs:attribute name="class" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  
+  <!-- Quote definition -->
+  <xs:complexType name="quoteType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="author" type="xs:string"/>
+        <!-- Bootstrap classes -->
+        <xs:attribute name="class" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  
+  <!-- Chart definition with Chart.js support -->
+  <xs:complexType name="chartType">
+    <xs:sequence>
+      <xs:element name="data" type="xs:string"/>
+      <xs:element name="options" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="type">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="bar"/>
+          <xs:enumeration value="line"/>
+          <xs:enumeration value="pie"/>
+          <xs:enumeration value="doughnut"/>
+          <xs:enumeration value="radar"/>
+          <xs:enumeration value="polarArea"/>
+          <xs:enumeration value="bubble"/>
+          <xs:enumeration value="scatter"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="height" type="xs:string"/>
+    <xs:attribute name="class" type="xs:string"/>
+  </xs:complexType>
+  
+  <!-- Code block -->
+  <xs:complexType name="codeType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="language" type="xs:string"/>
+        <!-- Bootstrap classes -->
+        <xs:attribute name="class" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  
+  <!-- Table definition -->
+  <xs:complexType name="tableType">
+    <xs:sequence>
+      <xs:element name="header" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="cell" type="richTextType" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="row" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="cell" type="richTextType" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <!-- Bootstrap table classes -->
+    <xs:attribute name="class" type="xs:string"/>
+  </xs:complexType>
+  
+  <!-- Bootstrap-specific row for grid system -->
+  <xs:complexType name="rowType">
+    <xs:sequence>
+      <xs:element name="col" type="colType" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <!-- Bootstrap row classes -->
+    <xs:attribute name="class" type="xs:string"/>
+  </xs:complexType>
+  
+  <!-- Column for Bootstrap grid -->
+  <xs:complexType name="colType">
+    <xs:complexContent>
+      <xs:extension base="contentType">
+        <xs:attribute name="size" type="xs:string"/>
+        <xs:attribute name="class" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  
+  <!-- Bootstrap alert component -->
+  <xs:complexType name="alertType">
+    <xs:complexContent>
+      <xs:extension base="richTextType">
+        <xs:attribute name="type">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="primary"/>
+              <xs:enumeration value="secondary"/>
+              <xs:enumeration value="success"/>
+              <xs:enumeration value="danger"/>
+              <xs:enumeration value="warning"/>
+              <xs:enumeration value="info"/>
+              <xs:enumeration value="light"/>
+              <xs:enumeration value="dark"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  
+  <!-- Bootstrap card component -->
+  <xs:complexType name="cardType">
+    <xs:sequence>
+      <xs:element name="header" type="richTextType" minOccurs="0"/>
+      <xs:element name="body" type="contentType"/>
+      <xs:element name="footer" type="richTextType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="class" type="xs:string"/>
+  </xs:complexType>
+  
+  <!-- Bootstrap badge component -->
+  <xs:complexType name="badgeType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="type">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="primary"/>
+              <xs:enumeration value="secondary"/>
+              <xs:enumeration value="success"/>
+              <xs:enumeration value="danger"/>
+              <xs:enumeration value="warning"/>
+              <xs:enumeration value="info"/>
+              <xs:enumeration value="light"/>
+              <xs:enumeration value="dark"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  
+  <!-- Bootstrap theme types -->
+  <xs:simpleType name="themeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="light"/>
+      <xs:enumeration value="dark"/>
+      <xs:enumeration value="auto"/>
+      <xs:enumeration value="custom"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <!-- Slide type enumeration -->
+  <xs:simpleType name="slideTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="title"/>
+      <xs:enumeration value="standard"/>
+      <xs:enumeration value="section"/>
+      <xs:enumeration value="image"/>
+      <xs:enumeration value="quote"/>
+      <xs:enumeration value="chart"/>
+      <xs:enumeration value="comparison"/>
+      <xs:enumeration value="timeline"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <!-- Transition type -->
+  <xs:simpleType name="transitionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="fade"/>
+      <xs:enumeration value="slide"/>
+      <xs:enumeration value="zoom"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+</xs:schema>

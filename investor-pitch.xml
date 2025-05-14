@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="presentation.xsl" ?>
+<presentation id="bootstrap-investor-pitch" theme="light" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="presentation.xsd">
+  
+  <metadata>
+    <title>Investor Pitch Deck (Bootstrap Version)</title>
+    <author>Company Name</author>
+    <date>2025-05-14</date>
+    <description>Series A funding pitch presentation with Bootstrap styling</description>
+    <brand>
+      <color name="primary">#0d6efd</color>
+      <color name="secondary">#6610f2</color>
+      <color name="accent">#fd7e14</color>
+      <color name="text">#212529</color>
+      <color name="background">#f8f9fa</color>
+    </brand>
+  </metadata>
+  
+  <slide id="title-slide" type="title">
+    <title>Investor Pitch Deck</title>
+    <content>
+      <p>Company Name, Inc.</p>
+      <p>Series A Funding Round</p>
+      <p>May 2025</p>
+    </content>
+    <notes>Welcome everyone and introduce the team briefly.</notes>
+  </slide>
+  
+  <slide id="vision" type="standard">
+    <title>Our Vision</title>
+    <content>
+      <p>Transforming the industry with innovative solutions that address critical pain points and create value for all stakeholders.</p>
+          <!--<image src="vision.jpg" alt="Vision illustration" /> -->
+      <!-- With this (data URL for a simple placeholder): -->
+<image src="data:image/svg+xml,%3Csvg width='800' height='450' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%23e6f2ff'/%3E%3Ccircle cx='400' cy='225' r='150' fill='%23ffffff' stroke='%230066cc' stroke-width='2'/%3E%3Ctext x='400' y='225' font-family='Arial' font-size='24' text-anchor='middle' fill='%230066cc'%3EVision Placeholder%3C/text%3E%3C/svg%3E" alt="Vision illustration" />
+    </content>
+    <notes>Explain how our vision aligns with market needs and future trends.</notes>
+  </slide>
+  
+  <slide id="problem" type="standard">
+    <title>The Problem</title>
+    <content>
+      <list type="bullet">
+        <item>Current market challenges affecting efficiency and growth</item>
+        <item>Unmet customer needs creating significant pain points</item>
+        <item>Inefficiencies in the ecosystem leading to lost revenue and opportunities</item>
+      </list>
+    </content>
+    <notes>Highlight the severity of these problems with specific examples from customer interviews.</notes>
+  </slide>
+  
+  <slide id="solution" type="standard">
+    <title>Our Solution</title>
+    <content>
+      <p>Our platform provides a seamless experience that addresses key pain points through:</p>
+      <list type="bullet">
+        <item><strong>Integration</strong> - Connects disparate systems</item>
+        <item><strong>Automation</strong> - Reduces manual processes</item>
+        <item><strong>Analytics</strong> - Provides actionable insights</item>
+      </list>
+      <!--<image src="product-screenshot.jpg" alt="Product screenshot" /> -->
+      <!-- With this: -->
+<image src="data:image/svg+xml,%3Csvg width='800' height='450' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%23f0f0f0'/%3E%3Crect x='50' y='50' width='700' height='350' rx='10' fill='%23ffffff' stroke='%23cccccc' stroke-width='2'/%3E%3Ctext x='400' y='225' font-family='Arial' font-size='24' text-anchor='middle' fill='%23666666'%3EProduct Screenshot%3C/text%3E%3C/svg%3E" alt="Product screenshot" />
+    </content>
+    <notes>Demo the key features of our solution that directly address the problems.</notes>
+  </slide>
+  
+  <slide id="market" type="chart">
+    <title>Market Opportunity</title>
+    <content>
+      <p>$500B+ total addressable market with 15% CAGR</p>
+      <chart type="bar" height="400px">
+        <data>
+          [
+            {"segment": "Enterprise", "value": 250},
+            {"segment": "Mid-market", "value": 150},
+            {"segment": "SMB", "value": 100}
+          ]
+        </data>
+        <options>
+          {
+            "plugins": {
+              "title": {
+                "display": true,
+                "text": "Market Segments ($B)",
+                "font": {
+                  "size": 16
+                }
+              }
+            }
+          }
+        </options>
+      </chart>
+      <p>Our initial focus targets the $150B mid-market segment, with plans to expand.</p>
+    </content>
+    <notes>Explain our market entry strategy and expansion plans.</notes>
+  </slide>
+  
+  <slide id="business-model" type="standard">
+    <title>Business Model</title>
+    <content>
+      <list type="bullet">
+        <item><strong>SaaS subscription model</strong> - $50-200 per user/month</item>
+        <item><strong>Enterprise partnerships</strong> - White-label solutions</item>
+        <item><strong>Value-added services</strong> - Implementation and customization</item>
+      </list>
+      <chart type="pie" height="350px">
+        <data>
+          [
+            {"segment": "Subscriptions", "value": 70},
+            {"segment": "Partnerships", "value": 20},
+            {"segment": "Services", "value": 10}
+          ]
+        </data>
+        <options>
+          {
+            "plugins": {
+              "title": {
+                "display": true,
+                "text": "Revenue Distribution (%)",
+                "font": {
+                  "size": 16
+                }
+              }
+            }
+          }
+        </options>
+      </chart>
+    </content>
+    <notes>Emphasize our high-margin recurring revenue model.</notes>
+  </slide>
+  
+  <slide id="traction" type="standard">
+    <title>Traction</title>
+    <content>
+      <list type="bullet">
+        <item>250+ customers across 15 industries</item>
+        <item>$2.5M ARR with 140% YoY growth</item>
+        <item>95% customer retention rate</item>
+      </list>
+      <chart type="line" height="350px">
+        <data>
+          [
+            {"quarter": "Q1 2024", "revenue": 0.4},
+            {"quarter": "Q2 2024", "revenue": 0.7},
+            {"quarter": "Q3 2024", "revenue": 1.1},
+            {"quarter": "Q4 2024", "revenue": 1.8},
+            {"quarter": "Q1 2025", "revenue": 2.5}
+          ]
+        </data>
+        <options>
+          {
+            "plugins": {
+              "title": {
+                "display": true,
+                "text": "Quarterly Revenue ($M)",
+                "font": {
+                  "size": 16
+                }
+              }
+            },
+            "scales": {
+              "y": {
+                "beginAtZero": true,
+                "ticks": {
+                  "callback": "function(value) { return '$' + value + 'M'; }"
+                }
+              }
+            }
+          }
+        </options>
+      </chart>
+    </content>
+    <notes>Highlight key customer success stories and reference accounts.</notes>
+  </slide>
+  
+  <slide id="team" type="standard">
+    <title>Team</title>
+    <content>
+      <p>Industry veterans with 50+ years combined experience</p>
+      <list type="bullet">
+        <item><strong>Jane Smith, CEO</strong> - Former VP at Industry Leader</item>
+        <item><strong>John Doe, CTO</strong> - 15 years technical experience</item>
+        <item><strong>Sarah Johnson, COO</strong> - Scaled operations at two startups</item>
+      </list>
+      <p>Advisory board includes industry pioneers and successful entrepreneurs</p>
+    </content>
+    <notes>Emphasize past successes and relevant industry expertise.</notes>
+  </slide>
+  
+  <slide id="funding" type="standard">
+    <title>Funding Ask</title>
+    <content>
+      <p>$5M Series A to accelerate growth</p>
+      <chart type="doughnut" height="350px">
+        <data>
+          [
+            {"allocation": "Product Development", "value": 60},
+            {"allocation": "Sales &amp; Marketing", "value": 30},
+            {"allocation": "Operations", "value": 10}
+          ]
+        </data>
+        <options>
+          {
+            "plugins": {
+              "title": {
+                "display": true,
+                "text": "Funding Allocation (%)",
+                "font": {
+                  "size": 16
+                }
+              }
+            }
+          }
+        </options>
+      </chart>
+      <p>Projected to reach $10M ARR within 18 months of funding</p>
+    </content>
+    <notes>Explain capital efficiency and path to profitability.</notes>
+  </slide>
+  
+  <slide id="roadmap" type="timeline">
+    <title>Roadmap</title>
+    <content>
+      <p>Strategic milestones for the next 24 months:</p>
+      <table>
+        <header>
+          <cell>Timeline</cell>
+          <cell>Product</cell>
+          <cell>Market</cell>
+          <cell>Team</cell>
+        </header>
+        <row>
+          <cell>Q3 2025</cell>
+          <cell>Enterprise Features</cell>
+          <cell>Expand Sales Team</cell>
+          <cell>Hire VP Marketing</cell>
+        </row>
+        <row>
+          <cell>Q1 2026</cell>
+          <cell>Mobile App</cell>
+          <cell>European Expansion</cell>
+          <cell>Open EU Office</cell>
+        </row>
+        <row>
+          <cell>Q3 2026</cell>
+          <cell>AI Integration</cell>
+          <cell>APAC Market Entry</cell>
+          <cell>Double Engineering</cell>
+        </row>
+      </table>
+    </content>
+    <notes>Emphasize flexibility and data-driven decision making in our roadmap.</notes>
+  </slide>
+  
+  <slide id="themes" type="section">
+    <title>Bootstrap Themes</title>
+    <content>
+      <p>This presentation supports all Bootstrap themes via data-bs-theme attribute:</p>
+      <list type="bullet">
+        <item>Light (default theme)</item>
+        <item>Dark (high-contrast dark mode)</item>
+        <item>More themes via CSS variables</item>
+      </list>
+      <p>Change theme by modifying the theme attribute in the XML:</p>
+      <code language="xml">&lt;presentation id="pitch" theme="dark"&gt;</code>
+    </content>
+    <notes>Demonstrate how easy it is to switch themes with our Bootstrap integration.</notes>
+  </slide>
+  
+  <slide id="theme-customization" type="standard">
+    <title>Theme Customization</title>
+    <content>
+      <p>Customize colors by changing the brand section in your XML:</p>
+      <code language="xml">
+&lt;brand&gt;
+  &lt;color name="primary"&gt;#0d6efd&lt;/color&gt;
+  &lt;color name="secondary"&gt;#6610f2&lt;/color&gt;
+  &lt;color name="accent"&gt;#fd7e14&lt;/color&gt;
+  &lt;color name="text"&gt;#212529&lt;/color&gt;
+  &lt;color name="background"&gt;#f8f9fa&lt;/color&gt;
+&lt;/brand&gt;</code>
+      <p>Colors are converted to Bootstrap CSS variables:</p>
+      <list type="bullet">
+        <item>primary → --bs-primary</item>
+        <item>secondary → --bs-secondary</item>
+        <item>accent → --bs-info</item>
+        <item>text → --bs-body-color</item>
+        <item>background → --bs-body-bg</item>
+      </list>
+    </content>
+    <notes>Explain how the system maps brand colors to Bootstrap CSS variables.</notes>
+  </slide>
+  
+  <slide id="responsive-design" type="standard">
+    <title>Responsive Design</title>
+    <content>
+      <p>The presentation automatically adapts to different screen sizes:</p>
+      <list type="bullet">
+        <item>Desktop displays show full details</item>
+        <item>Tablet/mobile views adjust layout and font sizes</item>
+        <item>Charts resize proportionally</item>
+        <item>Navigation controls remain accessible</item>
+      </list>
+      <p>Built with Bootstrap's responsive grid system and utility classes.</p>
+    </content>
+    <notes>Mention that you can test responsiveness with browser devtools or on actual devices.</notes>
+  </slide>
+  
+  <slide id="chart-integration" type="chart">
+    <title>Chart.js Integration</title>
+    <content>
+      <p>Charts automatically use Bootstrap theme colors:</p>
+      <chart type="radar" height="400px">
+        <data>
+          [
+            {"attribute": "Performance", "value": 85},
+            {"attribute": "Reliability", "value": 90},
+            {"attribute": "Usability", "value": 75},
+            {"attribute": "Features", "value": 80},
+            {"attribute": "Support", "value": 95},
+            {"attribute": "Price", "value": 70}
+          ]
+        </data>
+        <options>
+          {
+            "plugins": {
+              "title": {
+                "display": true,
+                "text": "Product Evaluation",
+                "font": {
+                  "size": 16
+                }
+              }
+            },
+            "scales": {
+              "r": {
+                "min": 0,
+                "max": 100,
+                "ticks": {
+                  "stepSize": 20
+                }
+              }
+            }
+          }
+        </options>
+      </chart>
+      <p>Theme changes affect both UI and chart elements for visual consistency.</p>
+    </content>
+    <notes>Point out how charts match the current theme automatically.</notes>
+  </slide>
+  
+  <slide id="closing" type="section">
+    <title>Thank You</title>
+    <content>
+      <p>Ready to transform the industry together</p>
+      <p>Contact: jane.smith@company.com | (555) 123-4567</p>
+      <p>www.companyname.com</p>
+    </content>
+    <notes>Open the floor for questions. Have backup slides ready for detailed financial projections if requested.</notes>
+  </slide>
+  
+</presentation>
