@@ -29,7 +29,6 @@ xml-presentation/
 │   │   ├── part1-overview.md
 │   │   ├── part2-features.md
 │   │   └── ... (other guide parts)
-│   └── README.md              # This file
 ├── examples/                  # Example presentations
 │   └── investor-pitch.xml
 ├── js/                        # JavaScript files
@@ -38,7 +37,8 @@ xml-presentation/
 │   └── presentation.xsd
 ├── templates/                 # XSL templates
 │   └── presentation.xsl
-└── index.html                 # Main entry point
+│── index.html                 # Main entry point
+│── README.md                  # This file
 ```
 
 ## Getting Started
