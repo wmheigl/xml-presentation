@@ -30,7 +30,8 @@ xml-presentation/
 │   │   ├── part2-features.md
 │   │   └── ... (other guide parts)
 ├── examples/                  # Example presentations
-│   └── investor-pitch.xml
+│   ├── investor-pitch.xml
+│   └── your-presentation.xml
 ├── js/                        # JavaScript files
 │   └── presentation.js
 ├── schema/                    # XML Schema files
