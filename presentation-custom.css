@@ -1,6 +1,19 @@
-/* Custom presentation styles for Bootstrap-based slides */
+/* 
+ * Custom presentation styles for Bootstrap-based slides 
+ * Organized by component with consistent z-index strategy
+ */
 
-/* Presentation container */
+:root {
+  /* Z-index strategy */
+  --z-slide: 10;
+  --z-controls: 100;
+  --z-progress: 90;
+  --z-speaker-notes: 200;
+}
+
+/* Base Layout
+   ========================================================================== */
+
 .presentation-container {
   position: fixed;
   top: 0;
@@ -8,45 +21,55 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
+  z-index: var(--z-slide);
 }
 
-/* Slide styles */
+/* Slide Styles
+   ========================================================================== */
+
 .slide {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.5s ease, transform 0.5s ease;
-  z-index: 0;
+  z-index: var(--z-slide);
   background-color: var(--bs-body-bg);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /* Active slide */
 .slide.active {
-  opacity: 1 !important;
+  opacity: 1;
   pointer-events: auto;
-  z-index: 1 !important;
 }
 
-/* Slide transitions */
-.slide[data-transition="none"] {
-  transition: opacity 0.1s;
-}
+/* Slide Transitions
+   ========================================================================== */
 
+/* Fade transition */
 .slide[data-transition="fade"] {
   transition: opacity 0.5s ease;
 }
 
+/* Slide transition */
 .slide[data-transition="slide"] {
   transform: translateX(100%);
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 .slide[data-transition="slide"].active {
   transform: translateX(0);
 }
 
+/* Zoom transition */
 .slide[data-transition="zoom"] {
   transform: scale(0.5);
   opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 .slide[data-transition="zoom"].active {
@@ -54,16 +77,69 @@
   opacity: 1;
 }
 
-/* Speaker notes panel */
+/* Quick transition */
+.slide[data-transition="none"] {
+  transition: opacity 0.1s;
+}
+
+/* Navigation Controls
+   ========================================================================== */
+
+/* Controls positioning and styling */
+.controls {
+  position: fixed !important;
+  bottom: 40px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: var(--z-controls) !important;
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  padding: 8px 16px !important;
+  border-radius: 30px !important;
+  pointer-events: auto !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Progress bar */
+.progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  z-index: var(--z-progress);
+}
+
+/* Speaker Notes
+   ========================================================================== */
+
+#speaker-notes-panel {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 25%;
+  height: 40%;
+  z-index: var(--z-speaker-notes);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
 #speaker-notes-panel.hidden {
   display: none !important;
 }
 
-/* Chart styles - ensuring proper size and spacing */
+/* Charts
+   ========================================================================== */
+
+.chart-container {
+  width: 100%;
+  position: relative;
+  margin: 1rem 0;
+}
+
 .chart {
   width: 100%;
   height: 100%;
   position: relative;
+  will-change: transform; /* Optimize rendering performance */
 }
 
 /* Loading indicator for charts */
@@ -81,24 +157,25 @@
   display: none;
 }
 
-/* Specific slide type styling */
+/* Slide Type Styling
+   ========================================================================== */
+
+/* Title and section slides */
 .slide[data-slide-type="title"] h1,
 .slide[data-slide-type="section"] h1 {
   margin-bottom: 1.5rem;
 }
 
 .slide[data-slide-type="title"] .slide-content,
-.slide[data-slide-type="section"] .slide-content {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
+.slide[data-slide-type="section"] .slide-content,
 .slide[data-slide-type="quote"] blockquote {
   max-width: 800px;
   margin: 0 auto;
 }
 
-/* Slide animation for content */
+/* Content Animation
+   ========================================================================== */
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -110,13 +187,14 @@
   }
 }
 
-.slide.active .slide-content > * {
-  animation: fadeInUp 0.5s ease-out forwards;
-}
-
-/* Ensuring slide content is properly spaced */
+/* Apply animations to slide content */
 .slide-content > * {
   opacity: 0;
+}
+
+/* Create staggered animation delay for content elements */
+.slide.active .slide-content > * {
+  animation: fadeInUp 0.5s ease-out forwards;
 }
 
 .slide.active .slide-content > *:nth-child(1) { animation-delay: 0.1s; }
@@ -128,16 +206,21 @@
 .slide.active .slide-content > *:nth-child(7) { animation-delay: 0.7s; }
 .slide.active .slide-content > *:nth-child(8) { animation-delay: 0.8s; }
 
-/* Font adjustments for better readability in presentations */
+/* Typography
+   ========================================================================== */
+
 .slide {
   font-size: 1.1rem;
 }
 
-.slide h1, .slide h2 {
+.slide h1, 
+.slide h2 {
   line-height: 1.2;
 }
 
-/* Utility classes for presentations */
+/* Utility Classes
+   ========================================================================== */
+
 .slide-center-content {
   display: flex;
   flex-direction: column;
@@ -146,7 +229,9 @@
   text-align: center;
 }
 
-/* Responsive adjustments */
+/* Responsive Adjustments
+   ========================================================================== */
+
 @media (max-width: 768px) {
   .slide {
     padding: 1rem !important;
@@ -162,24 +247,36 @@
   
   .controls {
     bottom: 10px !important;
+    padding: 5px 10px !important;
   }
   
   #speaker-notes-panel {
     width: 100% !important;
     height: 30% !important;
   }
+  
+  /* Ensure buttons are large enough for touch on mobile */
+  .controls button {
+    min-width: 40px;
+    min-height: 40px;
+  }
 }
 
-/* Print styles for PDF export */
+/* Print Styles
+   ========================================================================== */
+
 @media print {
   .slide {
     opacity: 1 !important;
     position: relative !important;
     page-break-after: always;
     height: auto !important;
+    transform: none !important;
   }
   
-  .controls, .progress, #speaker-notes-panel {
+  .controls, 
+  .progress, 
+  #speaker-notes-panel {
     display: none !important;
   }
   
@@ -191,5 +288,11 @@
   #slides-container {
     height: auto !important;
     overflow: visible !important;
+  }
+  
+  /* Ensure content is fully visible */
+  .slide-content > * {
+    opacity: 1 !important;
+    animation: none !important;
   }
 }

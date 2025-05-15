@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<presentation id="bootstrap-investor-pitch" theme="light" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="presentation.xsd">
+<presentation id="bootstrap-investor-pitch" theme="light" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="presentation.xsd" lang="en">
   
   <metadata>
     <title>Investor Pitch Deck (Bootstrap Version)</title>
     <author>Company Name</author>
     <date>2025-05-14</date>
     <description>Series A funding pitch presentation with Bootstrap styling</description>
+    <keywords>startup, funding, pitch deck, investment</keywords>
     <brand>
       <color name="primary">#0d6efd</color>
       <color name="secondary">#6610f2</color>
@@ -21,17 +22,33 @@
       <p>Company Name, Inc.</p>
       <p>Series A Funding Round</p>
       <p>May 2025</p>
+      <p class="mt-4">
+        <badge type="primary">Series A</badge>
+        <badge type="success">$5M</badge>
+      </p>
     </content>
-    <notes>Welcome everyone and introduce the team briefly.</notes>
+    <notes>Welcome everyone and introduce the team briefly. Remember to highlight our key metrics.</notes>
   </slide>
   
   <slide id="vision" type="standard">
     <title>Our Vision</title>
     <content>
       <p>Transforming the industry with innovative solutions that address critical pain points and create value for all stakeholders.</p>
-          <!--<image src="vision.jpg" alt="Vision illustration" /> -->
-      <!-- With this (data URL for a simple placeholder): -->
-<image src="data:image/svg+xml,%3Csvg width='800' height='450' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%23e6f2ff'/%3E%3Ccircle cx='400' cy='225' r='150' fill='%23ffffff' stroke='%230066cc' stroke-width='2'/%3E%3Ctext x='400' y='225' font-family='Arial' font-size='24' text-anchor='middle' fill='%230066cc'%3EVision Placeholder%3C/text%3E%3C/svg%3E" alt="Vision illustration" />
+      <image src="data:image/svg+xml,%3Csvg width='800' height='450' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%23e6f2ff'/%3E%3Ccircle cx='400' cy='225' r='150' fill='%23ffffff' stroke='%230066cc' stroke-width='2'/%3E%3Ctext x='400' y='225' font-family='Arial' font-size='24' text-anchor='middle' fill='%230066cc'%3EVision Placeholder%3C/text%3E%3C/svg%3E" alt="Vision illustration" loading="lazy" />
+      <row class="mt-4">
+        <col size="4">
+          <p class="text-center"><strong>Innovation</strong></p>
+          <p>Cutting-edge approach to solving industry challenges.</p>
+        </col>
+        <col size="4">
+          <p class="text-center"><strong>Value</strong></p>
+          <p>Creating measurable impact for all stakeholders.</p>
+        </col>
+        <col size="4">
+          <p class="text-center"><strong>Growth</strong></p>
+          <p>Scaling our solution to meet global demand.</p>
+        </col>
+      </row>
     </content>
     <notes>Explain how our vision aligns with market needs and future trends.</notes>
   </slide>
@@ -39,11 +56,21 @@
   <slide id="problem" type="standard">
     <title>The Problem</title>
     <content>
+      <alert type="warning" class="mb-4">
+        Current solutions are failing to address key market challenges
+      </alert>
       <list type="bullet">
         <item>Current market challenges affecting efficiency and growth</item>
         <item>Unmet customer needs creating significant pain points</item>
         <item>Inefficiencies in the ecosystem leading to lost revenue and opportunities</item>
       </list>
+      <card class="mt-4">
+        <header>Customer Frustration Points</header>
+        <body>
+          <quote author="Enterprise Customer">The current solutions require too much manual work and don't integrate with our existing systems.</quote>
+        </body>
+        <footer>Based on interviews with 50+ potential customers</footer>
+      </card>
     </content>
     <notes>Highlight the severity of these problems with specific examples from customer interviews.</notes>
   </slide>
@@ -57,9 +84,7 @@
         <item><strong>Automation</strong> - Reduces manual processes</item>
         <item><strong>Analytics</strong> - Provides actionable insights</item>
       </list>
-      <!--<image src="product-screenshot.jpg" alt="Product screenshot" /> -->
-      <!-- With this: -->
-<image src="data:image/svg+xml,%3Csvg width='800' height='450' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%23f0f0f0'/%3E%3Crect x='50' y='50' width='700' height='350' rx='10' fill='%23ffffff' stroke='%23cccccc' stroke-width='2'/%3E%3Ctext x='400' y='225' font-family='Arial' font-size='24' text-anchor='middle' fill='%23666666'%3EProduct Screenshot%3C/text%3E%3C/svg%3E" alt="Product screenshot" />
+      <image src="data:image/svg+xml,%3Csvg width='800' height='450' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%23f0f0f0'/%3E%3Crect x='50' y='50' width='700' height='350' rx='10' fill='%23ffffff' stroke='%23cccccc' stroke-width='2'/%3E%3Ctext x='400' y='225' font-family='Arial' font-size='24' text-anchor='middle' fill='%23666666'%3EProduct Screenshot%3C/text%3E%3C/svg%3E" alt="Product screenshot" loading="lazy" />
     </content>
     <notes>Demo the key features of our solution that directly address the problems.</notes>
   </slide>
@@ -91,6 +116,9 @@
         </options>
       </chart>
       <p>Our initial focus targets the $150B mid-market segment, with plans to expand.</p>
+      <alert type="info" class="mt-3">
+        Mid-market segment has the highest growth rate at 22% annually.
+      </alert>
     </content>
     <notes>Explain our market entry strategy and expansion plans.</notes>
   </slide>
@@ -125,6 +153,32 @@
           }
         </options>
       </chart>
+      <table class="mt-4" summary="Pricing tiers for different customer segments">
+        <header>
+          <cell>Tier</cell>
+          <cell>Price</cell>
+          <cell>Features</cell>
+          <cell>Target</cell>
+        </header>
+        <row>
+          <cell>Starter</cell>
+          <cell>$50/user/mo</cell>
+          <cell>Core platform</cell>
+          <cell>SMB</cell>
+        </row>
+        <row>
+          <cell>Pro</cell>
+          <cell>$100/user/mo</cell>
+          <cell>+ Advanced analytics</cell>
+          <cell>Mid-market</cell>
+        </row>
+        <row>
+          <cell>Enterprise</cell>
+          <cell>$200/user/mo</cell>
+          <cell>+ Custom integrations</cell>
+          <cell>Enterprise</cell>
+        </row>
+      </table>
     </content>
     <notes>Emphasize our high-margin recurring revenue model.</notes>
   </slide>
@@ -169,6 +223,26 @@
           }
         </options>
       </chart>
+      <row class="mt-4">
+        <col size="6">
+          <card>
+            <header>Key Customer</header>
+            <body>
+              <p>"Implementing this solution reduced our processing time by 75% and saved us $500K annually."</p>
+            </body>
+            <footer>Fortune 500 Manufacturing Company</footer>
+          </card>
+        </col>
+        <col size="6">
+          <card>
+            <header>Industry Recognition</header>
+            <body>
+              <p>Named "Top 10 Startups to Watch" by Industry Magazine</p>
+              <p>Winner of Technology Innovation Award 2024</p>
+            </body>
+          </card>
+        </col>
+      </row>
     </content>
     <notes>Highlight key customer success stories and reference accounts.</notes>
   </slide>
@@ -177,12 +251,36 @@
     <title>Team</title>
     <content>
       <p>Industry veterans with 50+ years combined experience</p>
-      <list type="bullet">
-        <item><strong>Jane Smith, CEO</strong> - Former VP at Industry Leader</item>
-        <item><strong>John Doe, CTO</strong> - 15 years technical experience</item>
-        <item><strong>Sarah Johnson, COO</strong> - Scaled operations at two startups</item>
-      </list>
-      <p>Advisory board includes industry pioneers and successful entrepreneurs</p>
+      <row>
+        <col size="4">
+          <card>
+            <body>
+              <p class="text-center"><strong>Jane Smith</strong></p>
+              <p class="text-center">CEO</p>
+              <p>Former VP at Industry Leader, 15+ years experience</p>
+            </body>
+          </card>
+        </col>
+        <col size="4">
+          <card>
+            <body>
+              <p class="text-center"><strong>John Doe</strong></p>
+              <p class="text-center">CTO</p>
+              <p>15 years technical experience, 3 successful exits</p>
+            </body>
+          </card>
+        </col>
+        <col size="4">
+          <card>
+            <body>
+              <p class="text-center"><strong>Sarah Johnson</strong></p>
+              <p class="text-center">COO</p>
+              <p>Scaled operations at two startups to acquisition</p>
+            </body>
+          </card>
+        </col>
+      </row>
+      <p class="mt-4">Advisory board includes industry pioneers and successful entrepreneurs</p>
     </content>
     <notes>Emphasize past successes and relevant industry expertise.</notes>
   </slide>
@@ -214,6 +312,9 @@
         </options>
       </chart>
       <p>Projected to reach $10M ARR within 18 months of funding</p>
+      <alert type="success" class="mt-3">
+        Capital efficiency: $1 spent = $4 in ARR
+      </alert>
     </content>
     <notes>Explain capital efficiency and path to profitability.</notes>
   </slide>
@@ -222,7 +323,7 @@
     <title>Roadmap</title>
     <content>
       <p>Strategic milestones for the next 24 months:</p>
-      <table>
+      <table summary="Product, market, and team roadmap for the next 24 months">
         <header>
           <cell>Timeline</cell>
           <cell>Product</cell>
@@ -248,113 +349,33 @@
           <cell>Double Engineering</cell>
         </row>
       </table>
+      <code language="javascript">
+// Example AI feature in development
+async function predictCustomerNeeds(customerData) {
+  const model = await loadPredictionModel();
+  const predictions = model.predict(customerData);
+  return predictions.topRecommendations;
+}
+      </code>
     </content>
     <notes>Emphasize flexibility and data-driven decision making in our roadmap.</notes>
-  </slide>
-  
-  <slide id="themes" type="section">
-    <title>Bootstrap Themes</title>
-    <content>
-      <p>This presentation supports all Bootstrap themes via data-bs-theme attribute:</p>
-      <list type="bullet">
-        <item>Light (default theme)</item>
-        <item>Dark (high-contrast dark mode)</item>
-        <item>More themes via CSS variables</item>
-      </list>
-      <p>Change theme by modifying the theme attribute in the XML:</p>
-      <code language="xml">&lt;presentation id="pitch" theme="dark"&gt;</code>
-    </content>
-    <notes>Demonstrate how easy it is to switch themes with our Bootstrap integration.</notes>
-  </slide>
-  
-  <slide id="theme-customization" type="standard">
-    <title>Theme Customization</title>
-    <content>
-      <p>Customize colors by changing the brand section in your XML:</p>
-      <code language="xml">
-&lt;brand&gt;
-  &lt;color name="primary"&gt;#0d6efd&lt;/color&gt;
-  &lt;color name="secondary"&gt;#6610f2&lt;/color&gt;
-  &lt;color name="accent"&gt;#fd7e14&lt;/color&gt;
-  &lt;color name="text"&gt;#212529&lt;/color&gt;
-  &lt;color name="background"&gt;#f8f9fa&lt;/color&gt;
-&lt;/brand&gt;</code>
-      <p>Colors are converted to Bootstrap CSS variables:</p>
-      <list type="bullet">
-        <item>primary → --bs-primary</item>
-        <item>secondary → --bs-secondary</item>
-        <item>accent → --bs-info</item>
-        <item>text → --bs-body-color</item>
-        <item>background → --bs-body-bg</item>
-      </list>
-    </content>
-    <notes>Explain how the system maps brand colors to Bootstrap CSS variables.</notes>
-  </slide>
-  
-  <slide id="responsive-design" type="standard">
-    <title>Responsive Design</title>
-    <content>
-      <p>The presentation automatically adapts to different screen sizes:</p>
-      <list type="bullet">
-        <item>Desktop displays show full details</item>
-        <item>Tablet/mobile views adjust layout and font sizes</item>
-        <item>Charts resize proportionally</item>
-        <item>Navigation controls remain accessible</item>
-      </list>
-      <p>Built with Bootstrap's responsive grid system and utility classes.</p>
-    </content>
-    <notes>Mention that you can test responsiveness with browser devtools or on actual devices.</notes>
-  </slide>
-  
-  <slide id="chart-integration" type="chart">
-    <title>Chart.js Integration</title>
-    <content>
-      <p>Charts automatically use Bootstrap theme colors:</p>
-      <chart type="radar" height="400px">
-        <data>
-          [
-            {"attribute": "Performance", "value": 85},
-            {"attribute": "Reliability", "value": 90},
-            {"attribute": "Usability", "value": 75},
-            {"attribute": "Features", "value": 80},
-            {"attribute": "Support", "value": 95},
-            {"attribute": "Price", "value": 70}
-          ]
-        </data>
-        <options>
-          {
-            "plugins": {
-              "title": {
-                "display": true,
-                "text": "Product Evaluation",
-                "font": {
-                  "size": 16
-                }
-              }
-            },
-            "scales": {
-              "r": {
-                "min": 0,
-                "max": 100,
-                "ticks": {
-                  "stepSize": 20
-                }
-              }
-            }
-          }
-        </options>
-      </chart>
-      <p>Theme changes affect both UI and chart elements for visual consistency.</p>
-    </content>
-    <notes>Point out how charts match the current theme automatically.</notes>
   </slide>
   
   <slide id="closing" type="section">
     <title>Thank You</title>
     <content>
       <p>Ready to transform the industry together</p>
-      <p>Contact: jane.smith@company.com | (555) 123-4567</p>
-      <p>www.companyname.com</p>
+      <p>Contact: <a href="mailto:jane.smith@company.com">jane.smith@company.com</a> | (555) 123-4567</p>
+      <p><a href="https://www.companyname.com" target="_blank" rel="noopener">www.companyname.com</a></p>
+      <row class="mt-5">
+        <col>
+          <card>
+            <body>
+              <p class="text-center fs-4">Questions?</p>
+            </body>
+          </card>
+        </col>
+      </row>
     </content>
     <notes>Open the floor for questions. Have backup slides ready for detailed financial projections if requested.</notes>
   </slide>
