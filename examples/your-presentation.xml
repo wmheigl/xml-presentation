@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<presentation id="my-first-presentation" theme="light" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../schema/presentation.xsd" lang="en">
+  
+  <metadata>
+    <title>My First Presentation</title>
+    <author>Your Name</author>
+    <date>2025-05-14</date>
+    <description>A starter template for your first XML/XSL Bootstrap presentation</description>
+    <keywords>starter, template, presentation</keywords>
+    <brand>
+      <color name="primary">#0d6efd</color>
+      <color name="secondary">#6c757d</color>
+      <color name="accent">#fd7e14</color>
+      <color name="text">#212529</color>
+      <color name="background">#f8f9fa</color>
+    </brand>
+  </metadata>
+  
+  <!-- Title Slide -->
+  <slide id="title-slide" type="title">
+    <title>My First Presentation</title>
+    <content>
+      <p>Created with XML/XSL and Bootstrap</p>
+      <p>By: Your Name</p>
+      <p>May 2025</p>
+    </content>
+    <notes>Welcome to your first slide! These notes are only visible to the presenter.</notes>
+  </slide>
+  
+  <!-- Introduction Slide -->
+  <slide id="introduction" type="standard">
+    <title>Introduction</title>
+    <content>
+      <p>This is a simple starter template to help you create your first presentation.</p>
+      <list type="bullet">
+        <item>Edit this XML file to add your own content</item>
+        <item>Use different slide types for different purposes</item>
+        <item>Add images, charts, and other elements as needed</item>
+      </list>
+      <p>Feel free to customize the brand colors in the metadata section!</p>
+    </content>
+    <notes>Explain the purpose of your presentation and give an overview of what you'll cover.</notes>
+  </slide>
+  
+  <!-- Content Slide with Columns -->
+  <slide id="features" type="standard">
+    <title>Using Bootstrap Features</title>
+    <content>
+      <p>This presentation system leverages Bootstrap for responsive layouts:</p>
+      <row>
+        <col size="12 md-4">
+          <p class="text-center"><strong>Responsive</strong></p>
+          <p>Automatically adapts to different screen sizes and devices</p>
+        </col>
+        <col size="12 md-4">
+          <p class="text-center"><strong>Themeable</strong></p>
+          <p>Switch between light, dark, and custom themes</p>
+        </col>
+        <col size="12 md-4">
+          <p class="text-center"><strong>Accessible</strong></p>
+          <p>Built with accessibility in mind for all users</p>
+        </col>
+      </row>
+    </content>
+    <notes>Highlight the key features of the presentation system here.</notes>
+  </slide>
+  
+  <!-- Image Slide -->
+  <slide id="image-example" type="image">
+    <title>Adding Images</title>
+    <content>
+      <p>You can add images to your slides like this:</p>
+      <image src="https://via.placeholder.com/800x400" alt="A placeholder image" loading="lazy">This is a placeholder image with a caption.</image>
+      <p>Replace the placeholder URL with your own image path.</p>
+      <p class="small text-muted">Don't forget to provide meaningful alt text for accessibility!</p>
+    </content>
+    <notes>Explain how to add and customize images in your presentation.</notes>
+  </slide>
+  
+  <!-- Chart Slide -->
+  <slide id="chart-example" type="chart">
+    <title>Data Visualization</title>
+    <content>
+      <p>You can add charts to visualize data:</p>
+      <chart type="bar" height="350px">
+        <data>
+          [
+            {"category": "Category A", "value": 65},
+            {"category": "Category B", "value": 59},
+            {"category": "Category C", "value": 80},
+            {"category": "Category D", "value": 81},
+            {"category": "Category E", "value": 56}
+          ]
+        </data>
+        <options>
+          {
+            "plugins": {
+              "title": {
+                "display": true,
+                "text": "Sample Chart Title"
+              }
+            }
+          }
+        </options>
+      </chart>
+      <p>Chart.js is integrated and automatically uses your theme colors.</p>
+    </content>
+    <notes>Explain the data visualization capabilities and how to customize charts.</notes>
+  </slide>
+  
+  <!-- Quote Slide -->
+  <slide id="quote-example" type="quote">
+    <title>Adding Quotes</title>
+    <content>
+      <quote author="Albert Einstein">Logic will get you from A to B. Imagination will take you everywhere.</quote>
+      <p>Use quote slides to highlight important statements or testimonials.</p>
+    </content>
+    <notes>This slide type is great for emphasizing important quotes or testimonials.</notes>
+  </slide>
+  
+  <!-- Content with Table -->
+  <slide id="table-example" type="standard">
+    <title>Tables and Formatting</title>
+    <content>
+      <p>You can include formatted tables in your presentations:</p>
+      <table summary="Sample data table showing different formatting options">
+        <header>
+          <cell>Header 1</cell>
+          <cell>Header 2</cell>
+          <cell>Header 3</cell>
+        </header>
+        <row>
+          <cell><strong>Bold text</strong></cell>
+          <cell><em>Italic text</em></cell>
+          <cell>Normal text</cell>
+        </row>
+        <row>
+          <cell>Row 2, Cell 1</cell>
+          <cell>Row 2, Cell 2</cell>
+          <cell>Row 2, Cell 3</cell>
+        </row>
+        <row>
+          <cell>Row 3, Cell 1</cell>
+          <cell>Row 3, Cell 2</cell>
+          <cell>Row 3, Cell 3</cell>
+        </row>
+      </table>
+      <p>Tables automatically adapt to different screen sizes.</p>
+    </content>
+    <notes>Explain how to create and format tables for data presentation.</notes>
+  </slide>
+  
+  <!-- Bootstrap Components -->
+  <slide id="components" type="standard">
+    <title>Bootstrap Components</title>
+    <content>
+      <p>You can use various Bootstrap components:</p>
+      <alert type="primary">
+        This is a primary alert component from Bootstrap.
+      </alert>
+      <row class="mt-3">
+        <col size="6">
+          <card>
+            <header>Card Title</header>
+            <body>
+              <p>This is a Bootstrap card component that you can use to group related content.</p>
+            </body>
+            <footer>Card footer with additional information</footer>
+          </card>
+        </col>
+        <col size="6">
+          <card>
+            <body>
+              <p>Cards can have different structures and styles.</p>
+              <p>Use them to organize your content effectively.</p>
+            </body>
+          </card>
+        </col>
+      </row>
+    </content>
+    <notes>Show how to use different Bootstrap components to enhance the presentation.</notes>
+  </slide>
+  
+  <!-- Code Sample -->
+  <slide id="code-example" type="standard">
+    <title>Code Samples</title>
+    <content>
+      <p>You can include code samples with syntax highlighting:</p>
+      <code language="javascript">
+// This is a sample JavaScript function
+function greet(name) {
+  console.log(`Hello, ${name}!`);
+  return `Hello, ${name}!`;
+}
+
+// Call the function
+greet('World');
+      </code>
+      <p>Code blocks are formatted for readability and syntax highlighting.</p>
+    </content>
+    <notes>Demonstrate how to include and format code samples in presentations.</notes>
+  </slide>
+  
+  <!-- Closing Slide -->
+  <slide id="closing" type="section">
+    <title>Thank You!</title>
+    <content>
+      <p>Your presentation is ready to be customized.</p>
+      <p>For more information, consult the documentation.</p>
+      <p>
+        <a href="https://getbootstrap.com/docs/" target="_blank">Bootstrap Documentation</a> | 
+        <a href="../docs/bootstrap-guide/README.md">Integration Guide</a>
+      </p>
+    </content>
+    <notes>Thank your audience and provide any additional resources or contact information.</notes>
+  </slide>
+  
+</presentation>

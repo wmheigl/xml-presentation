@@ -43,6 +43,24 @@ xml-presentation/
 
 ## Getting Started
 
+### Example Presentations
+
+Two example presentations are included in the `examples/` directory:
+
+- `investor-pitch.xml`: A complete investor pitch deck with various slide types and charts
+- `your-presentation.xml`: A starter template demonstrating core features
+
+You can use these as references or starting points for your own presentations.
+
+### Example Presentations
+
+Two example presentations are included in the `examples/` directory:
+
+- `investor-pitch.xml`: A complete investor pitch deck with various slide types and charts
+- `your-presentation.xml`: A starter template demonstrating core features
+
+You can use these as references or starting points for your own presentations.
+
 ### Running the Presentation
 
 Due to browser security restrictions, you **must** serve the files using an HTTP server rather than opening them directly from the filesystem. This is because the system uses AJAX requests to load XML and XSL files, which are blocked by CORS policies when using the `file://` protocol.
