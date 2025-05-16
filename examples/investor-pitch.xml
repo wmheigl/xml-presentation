@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<presentation id="bootstrap-investor-pitch" theme="light" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="presentation.xsd" lang="en">
+<presentation id="bootstrap-investor-pitch" theme="light" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../resources/presentation.xsd" lang="en">
   
   <metadata>
     <title>Investor Pitch Deck (Bootstrap Version)</title>

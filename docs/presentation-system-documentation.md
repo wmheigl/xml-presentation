@@ -350,7 +350,13 @@ Represents a logical section within a slide.
 
 #### `<layout>`
 
-General layout container that controls arrangement direction.
+General layout container that controls arrangement direction. It serves as a flexible layout wrapper that provides semantic control over:
+
+- Arrangement direction (vertical, horizontal, centered, or asymmetric)
+- Content balance (even distribution, left-heavy, right-heavy)
+- Spacing between items (compact, comfortable, spacious)
+
+It acts as a more customizable alternative to basic containers, allowing presenters to semantically describe how content should be arranged without directly using CSS flexbox properties.
 
 **Attributes:**
 
@@ -360,15 +366,78 @@ General layout container that controls arrangement direction.
 | `balance` | Content weight distribution | "even", "left-heavy", "right-heavy" | "even" |
 | `spacing` | Space between items | "compact", "comfortable", "spacious" | "comfortable" |
 
-**Example:**
+**Use Cases and Examples:**
+
+1. Vertical Content Arrangement
 
 ```xml
-<layout type="horizontal" balance="even" spacing="comfortable">
-  <div>First item</div>
-  <div>Second item</div>
-  <div>Third item</div>
+<layout type="vertical" spacing="comfortable">
+  <h2>Key Features</h2>
+  <p>Our product offers several benefits:</p>
+  <list type="unordered">
+    <item>Feature 1</item>
+    <item>Feature 2</item>
+    <item>Feature 3</item>
+  </list>
 </layout>
 ```
+
+This stacks the heading, paragraph, and list vertically with comfortable spacing.
+
+2. Horizontal Feature Display
+
+```xml
+<layout type="horizontal" balance="even" spacing="spacious">
+  <feature icon="rocket" title="Fast">
+    <p>Lightning quick performance</p>
+  </feature>
+  <feature icon="lock" title="Secure">
+    <p>Enterprise-grade security</p>
+  </feature>
+  <feature icon="brush" title="Beautiful">
+    <p>Sleek modern design</p>
+  </feature>
+</layout>
+```
+
+This arranges the feature boxes horizontally with even spacing between them.
+
+3. Centered Content
+
+```xml
+<layout type="centered">
+  <blockquote>
+    <text>Innovation distinguishes between a leader and a follower.</text>
+    <attribution>Steve Jobs</attribution>
+  </blockquote>
+</layout>
+```
+
+This centers the quote both horizontally and vertically within its container.
+
+4. Asymmetric Content with Weight
+
+```xml
+<layout type="asymmetric" balance="left-heavy">
+  <div class="main-point">
+    <h3>Primary Benefit</h3>
+    <p>Detailed explanation of our main value proposition...</p>
+  </div>
+  <div class="supporting-image">
+    <img src="benefit.jpg" alt="Product benefit demonstration" />
+  </div>
+</layout>
+```
+
+This creates an asymmetric layout with more emphasis on the left side content.
+
+**Difference Between `<layout>` and Other Components**
+
+- vs. `<container>`: While <container> focuses on wrapping content with specific width, padding, and background, `<layout>` focuses on how items are arranged relative to each other.
+- vs. `<grid>`/`<column>`: The grid system is specifically for creating column-based layouts with precise width control. <layout> is more for general-purpose arrangement when you don't need the complexity of a full grid.
+- vs. `<flex-container>`: `<layout>` is a higher-level abstraction that uses simple semantic attributes, while `<flex-container>` gives more direct control over flexbox properties.
+
+The `<layout>` component serves as a middle ground between simple containers and more complex grid/flexbox layouts, making it useful for quickly applying common layout patterns using semantic attributes rather than Bootstrap-specific classes.
 
 ### Grid Components
 

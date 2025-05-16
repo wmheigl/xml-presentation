@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<presentation id="simple-example" theme="light">
+  <metadata>
+    <title>Simple Example Presentation</title>
+    <author>Your Name</author>
+    <brand>
+      <color name="primary">#0d6efd</color>
+      <color name="secondary">#6c757d</color>
+    </brand>
+  </metadata>
+  
+  <slide id="welcome-slide" type="title">
+    <title>Welcome to the XML/XSL Presentation System</title>
+    <content>
+      <container type="fixed" padding="medium">
+        <alignment horizontal="center" text="center">
+          <p class="lead">A simple test of the refactored template system</p>
+          
+          <spacer size="medium" orientation="vertical" />
+          
+          <grid columns="3" gap="medium">
+            <column span="1">
+              <feature icon="code-slash" title="Semantic XML">
+                <p>Write content using semantic XML elements and attributes</p>
+              </feature>
+            </column>
+            <column span="1">
+              <feature icon="palette" title="Bootstrap Styling">
+                <p>Beautiful responsive design powered by Bootstrap</p>
+              </feature>
+            </column>
+            <column span="1">
+              <feature icon="layers" title="Modular XSL">
+                <p>Easily extensible with modular XSL templates</p>
+              </feature>
+            </column>
+          </grid>
+          
+          <spacer size="large" orientation="vertical" />
+          
+          <button type="primary" size="large">Get Started</button>
+        </alignment>
+      </container>
+    </content>
+    <notes>
+      This is a simple example slide to test the refactored XSL template system.
+      If this slide renders correctly, it means the basic templating structure is working!
+    </notes>
+  </slide>
+</presentation>

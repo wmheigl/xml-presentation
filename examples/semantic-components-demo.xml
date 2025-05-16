@@ -1,6 +1,6 @@
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<presentation id="semantic-components-demo" theme="light">
+<presentation id="semantic-components-demo" theme="light" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../resources/presentation.xsd" lang="en">
   <metadata>
     <title>Semantic Components Demo</title>
     <author>XML Presentation System</author>
