@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<presentation id="bootstrap-investor-pitch" theme="light" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="presentation.xsd" lang="en">
+
+    <metadata>
+        <title>Investor Pitch Deck</title>
+        <author>ZSell Inc</author>
+        <date>2025-05-15</date>
+        <description>Seed funding pitch presentation</description>
+        <keywords>startup, funding, pitch deck, investment</keywords>
+        <brand>
+            <color name="primary">#ffaa00</color>
+            <color name="secondary">#007bff</color>
+            <color name="accent">#936411</color>
+            <color name="text">#555555</color>
+            <color name="background">#f9f9f9</color>
+        </brand>
+    </metadata>
+
+    <slide id="title-slide" type="title">
+        <title>Investor Pitch Deck</title>
+        <content>
+            <p>ZSell Inc.</p>
+            <p>Seed Funding Round</p>
+            <p>July 2025</p>
+            <p class="mt-4">
+                <badge type="primary">Seed</badge>
+                <badge type="success">$1.5M</badge>
+            </p>
+        </content>
+        <notes>Welcome everyone and introduce the team briefly. Remember to highlight our key metrics.</notes>
+    </slide>
+
+    <slide id="vision" type="standard">
+        <title>Our Vision</title>
+        <content>
+            <p>To transform e-commerce through intelligent automation that combines advanced algorithms with targeted AI applications, elevating sellers from operational complexity to strategic growth, regardless of their technical expertise or business scale.</p>
+            <image src="data:image/svg+xml,%3Csvg width='800' height='450' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%23e6f2ff'/%3E%3Ccircle cx='400' cy='225' r='150' fill='%23ffffff' stroke='%230066cc' stroke-width='2'/%3E%3Ctext x='400' y='225' font-family='Arial' font-size='24' text-anchor='middle' fill='%230066cc'%3EVision Placeholder%3C/text%3E%3C/svg%3E" alt="Vision illustration" loading="lazy" />
+            <p class="text-center"><strong>Join us in democratizing e-commerce success!</strong></p>
+        </content>
+        <notes>Explain how our vision aligns with market needs and future trends.</notes>
+    </slide>
+
+    <slide id="problem" type="standard">
+        <title>The Problem</title>
+        <content>
+            <alert type="warning" class="mb-4">
+                E-commerce selling has become increasingly competitive and complex:
+            </alert>
+            <list type="bullet">
+                <item><strong>High barrier to entry</strong> - Professional seller tools cost $30-200/month</item>
+                <item><strong>Data overload</strong> - Sellers struggle to make sense of marketplace data</item>
+                <item><strong>Technical complexity</strong> - Current tools require significant expertise</item>
+                <item><strong>Platform fragmentation</strong> - Most tools are marketplace-specific</item>
+                <item><strong>Prohibitive pricing</strong> - 31% of Amazon sellers make under $500/month</item>
+            </list>
+            <card class="mt-4">
+                <header>Customer Frustration Points</header>
+                <body>
+                    <quote author="Amazon Seller">"Beginning sellers are priced out of professional tools, limiting their growth potential."</quote>
+                </body>
+                <footer>?? Based on interviews with 50+ potential customers ??</footer>
+            </card>
+        </content>
+        <notes>Highlight the severity of these problems with specific examples from customer interviews.</notes>
+    </slide>
+
+    <slide id="solution" type="standard">
+        <title>Our Solution: ZSell Vision</title>
+        <content>
+            <p>ZSell Vision is a marketplace-agnostic product research tool that makes e-commerce success accessible to sellers of all sizes.</p>
+            <list type="bullet">
+                <item><strong>Pre-configured search strategies</strong> - No technical expertise required</item>
+                <item><strong>Multi-marketplace data</strong> - Amazon, Shopify, Walmart and beyond</item>
+                <item><strong>AI-powered analysis</strong> - Clear insights and actionable recommendations</item>
+                <item><strong>Transparent explanations</strong> - Understanding behind every recommendation</item>
+                <item><strong>Affordable pricing</strong> - Starting under $10/month, no annual commitment</item>
+            </list>
+            <image src="data:image/svg+xml,%3Csvg width='800' height='450' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%23f0f0f0'/%3E%3Crect x='50' y='50' width='700' height='350' rx='10' fill='%23ffffff' stroke='%23cccccc' stroke-width='2'/%3E%3Ctext x='400' y='225' font-family='Arial' font-size='24' text-anchor='middle' fill='%23666666'%3EProduct Screenshot%3C/text%3E%3C/svg%3E" alt="Product screenshot" loading="lazy" />
+        </content>
+        <notes>Demo the key features of our solution that directly address the problems.</notes>
+    </slide>
+
+    <slide id="features" type="standard">
+        <title>ZSell Vision: Key Features</title>
+        <content>
+            <h2>For Beginning Sellers</h2>
+            <list type="bullet">
+                <item><strong>Guided research workflows</strong> - Step-by-step product discovery</item>
+                <item><strong>Opportunity scoring</strong> - Simple metrics for potential profitability</item>
+                <item><strong>Actionable recommendations</strong> - Clear next steps for implementation</item>
+                <item><strong>Competitive insights</strong> - Understand marketplace dynamics</item>
+                <item><strong>Listing optimization</strong> - AI-generated improvement suggestions</item>
+            </list>
+            <h2>For Experienced Sellers</h2>
+            <list type="bullet">
+                <item><strong>Cross-marketplace analysis</strong> - Identify platform-specific opportunities</item>
+                <item><strong>Advanced data filtering</strong> - Customize search parameters</item>
+                <item><strong>Performance prediction</strong> - AI-driven sales forecasting</item>
+                <item><strong>Trend identification</strong> - Spot emerging product opportunities</item>
+                <item><strong>Competitor benchmarking</strong> - Detailed performance comparisons</item>
+            </list>
+        </content>
+        <notes></notes>
+    </slide>
+
+    <slide id="validation" type="standard">
+        <title>Market Validation</title>
+        <content>
+            <h2>E-commerce Seller Growth:</h2>
+            <list type="bullet">
+                <item>1.1 million active Amazon sellers in the US</item>
+                <item>Walmart marketplace tripled since 2022 to 160,000 sellers</item>
+                <item>2.56 million active Shopify stores</item>
+                <item>Combined markets growing at 20-25% annually</item>
+            </list>
+            <h2>Tool Adoption Trends:</h2>
+            <list type="bullet">
+                <item>85% of Shopify merchants use multiple apps</item>
+                <item>Most Amazon sellers use tools, but price point limits beginners</item>
+                <item>Walmart marketplace sellers increasingly seeking specialized tools</item>
+                <item>Growing demand for AI-powered analytics (34% of Amazon sellers)</item>
+            </list>
+        </content>
+        <notes></notes>
+    </slide>
+
+    <slide id="market" type="chart">
+        <title>Market Opportunity</title>
+        <content>
+            <p>Total addressable market: 1-1.2 million sellers</p>
+            <chart type="bar" height="400px">
+                <data>
+                    [
+                    {"segment": "Small Amazon Sellers", "value": 341000},
+                    {"segment": "Small Shopify Stores", "value": 737000},
+                    {"segment": "New Walmart Sellers", "value": 55000},
+                    {"segment": "New US Amazon Sellers", "value": 551000}
+                    ]
+                </data>
+                <options>
+                    {
+                    "plugins": {
+                    "title": {
+                    "display": true,
+                    "text": "Sellers",
+                    "font": {
+                    "size": 16
+                    }
+                    }
+                    }
+                    }
+                </options>
+            </chart>
+            <p>Our initial focus targets the US Amazon sellers, with plans to expand to Shopify.</p>
+            <alert type="info" class="mt-3">
+                ?? Which market segment has the highest growth rate ??
+            </alert>
+        </content>
+        <notes>Explain our market entry strategy and expansion plans.</notes>
+    </slide>
+
+    <slide id="business-model" type="standard">
+        <title>Business Model</title>
+        <content>
+            <list type="bullet">
+                <item>SaaS subscription model - $8.99-28.99 per user/month</item>
+                <item>7-day free trial (no credit card required)</item>
+                <item>Optional add-ons for specialized features</item>
+            </list>
+            <table class="mt-4" summary="Pricing tiers for different customer segments">
+                <header>
+                    <cell>Tier</cell>
+                    <cell>Price</cell>
+                    <cell>Features</cell>
+                    <cell>Target</cell>
+                </header>
+                <row>
+                    <cell>Basic</cell>
+                    <cell>$8.99/user/mo</cell>
+                    <cell>Amazon-focused data, core AI analysis features, limited searches/month, basic recommendation engine</cell>
+                    <cell>Beginning seller</cell>
+                </row>
+                <row>
+                    <cell>Growth</cell>
+                    <cell>$18.99/user/mo</cell>
+                    <cell>+ Additional marketplace data, enhanced AI analysis, increased search volume, competitor tracking?</cell>
+                    <cell>Profitable seller</cell>
+                </row>
+                <row>
+                    <cell>Pro</cell>
+                    <cell>$28.99/user/mo</cell>
+                    <cell>+ All available marketplaces, advanced AI features, unlimited (?) searches, trend predictions (?)</cell>
+                    <cell>Established seller, enterprise</cell>
+                </row>
+            </table>
+        </content>
+        <notes>Emphasize our high-margin recurring revenue model.</notes>
+    </slide>
+
+    <slide id="market-size" type="chart">
+        <title>Market Opportunity Size</title>
+        <content>
+            <h2>Conservative Projections:</h2>
+            <list type="bullet">
+                <item><strong>1% market penetration</strong>: 10-12K subscribers
+                    <list type="dash">
+                        <item>Annual Revenue: $1.2-1.44M</item>
+                    </list>
+                </item>
+                <item><strong>5% market penetration</strong>: 50-60K subscribers
+                    <list type="dash">
+                        <item>Annual Revenue: $6-7.2M</item>
+                    </list>
+                </item>
+                <item><strong>10% market penetration</strong>: 100-120K subscribers
+                    <list type="dash">
+                        <item>Annual Revenue: $12-14.4M</item>
+                    </list>
+                </item>
+            </list>
+            <h2>With Tiered Pricing (at 5% penetration):</h2>
+            <list type="bullet">
+                <item>70% Basic / 20% Growth / 10% Pro
+                    <list type="dash">
+                        <item>Annual Revenue: $8.58M</item>
+                    </list>
+                </item>
+            </list>
+        </content>
+        <notes>Explain our market entry strategy and expansion plans.</notes>
+    </slide>
+
+    <slide id="traction" type="standard">
+        <title>Traction &amp; Milestones</title>
+        <content>
+            <h2>Current Status:</h2>
+            <list type="bullet">
+                <item>MVP development underway</item>
+                <item>JungleScout data integration established</item>
+                <item>Initial user testing with target demographic</item>
+            </list>
+            <h2>6-month Goals:</h2>
+            <list type="bullet">
+                <item>Official launch with 1,000+ active users</item>
+                <item>Basic tier fully operational</item>
+                <item>15% conversion rate from free trial</item>
+                <item>Established presence in seller communities</item>
+            </list>
+            <h2>12-month Goals:</h2>
+            <list type="bullet">
+                <item>10,000+ paying subscribers</item>
+                <item>All three tiers operational</item>
+                <item>Direct marketplace data integrations</item>
+                <item>Positive unit economics</item>
+            </list>
+            <row class="mt-4">
+                <col size="6">
+                    <card>
+                        <header>Key Customer</header>
+                        <body>
+                            <p>"Implementing this solution reduced our product research time by 75% and saved us ?? annually."</p>
+                        </body>
+                        <footer>Established Seller</footer>
+                    </card>
+                </col>
+                <col size="6">
+                    <card>
+                        <header>Industry Recognition</header>
+                        <body>
+                            <p>Named "Top 10 Startups to Watch" by Industry Magazine</p>
+                            <p>Winner of Technology Innovation Award 2024</p>
+                        </body>
+                    </card>
+                </col>
+            </row>
+        </content>
+        <notes>Highlight key customer success stories and reference accounts.</notes>
+    </slide>
+
+    <slide id="team" type="standard">
+        <title>Team</title>
+        <content>
+            <p>Industry veterans with 50+ years combined experience</p>
+            <row>
+                <col size="4">
+                    <card>
+                        <body>
+                            <p class="text-center"><strong>Werner heigl</strong></p>
+                            <p class="text-center">Founder &amp; CEO</p>
+                            <p>Former Chief Scientist at NanoSeis, 27+ years experience</p>
+                        </body>
+                    </card>
+                </col>
+                <col size="4">
+                    <card>
+                        <body>
+                            <p class="text-center"><strong>John Doe</strong></p>
+                            <p class="text-center">VP Sales</p>
+                            <p>15 years technical experience, 3 successful exits</p>
+                        </body>
+                    </card>
+                </col>
+                <col size="4">
+                    <card>
+                        <body>
+                            <p class="text-center"><strong>Sarah Does</strong></p>
+                            <p class="text-center">COO</p>
+                            <p>Scaled operations at two startups to acquisition</p>
+                        </body>
+                    </card>
+                </col>
+            </row>
+            <p class="mt-4">Advisory board includes e-commerce pioneers and successful Amazon sellers</p>
+        </content>
+        <notes>Emphasize past successes and relevant industry expertise.</notes>
+    </slide>
+
+    <slide id="funding" type="standard">
+        <title>Funding Ask</title>
+        <content>
+            <p>$1.5M Seed to accelerate growth</p>
+            <chart type="doughnut" height="350px">
+                <data>
+                    [
+                    {"allocation": "Product Development", "value": 60},
+                    {"allocation": "Sales &amp; Marketing", "value": 30},
+                    {"allocation": "Operations", "value": 10}
+                    ]
+                </data>
+                <options>
+                    {
+                    "plugins": {
+                    "title": {
+                    "display": true,
+                    "text": "Funding Allocation (%)",
+                    "font": {
+                    "size": 16
+                    }
+                    }
+                    }
+                    }
+                </options>
+            </chart>
+            <p>Projected to reach $2M ARR within 12 months of funding</p>
+            <alert type="success" class="mt-3">
+                Capital efficiency: $1 spent = $4 in ARR
+            </alert>
+        </content>
+        <notes>Explain capital efficiency and path to profitability.</notes>
+    </slide>
+
+    <slide id="roadmap" type="timeline">
+        <title>Roadmap</title>
+        <content>
+            <p>Strategic milestones for the next 24 months:</p>
+            <table summary="Product, market, and team roadmap for the next 24 months">
+                <header>
+                    <cell>Timeline</cell>
+                    <cell>Product</cell>
+                    <cell>Market</cell>
+                    <cell>Team</cell>
+                </header>
+                <row>
+                    <cell>Q3 2025</cell>
+                    <cell>Enterprise Features</cell>
+                    <cell>Expand Sales Team</cell>
+                    <cell>Hire VP Marketing</cell>
+                </row>
+                <row>
+                    <cell>Q1 2026</cell>
+                    <cell>Mobile App</cell>
+                    <cell>European Expansion</cell>
+                    <cell>Open EU Office</cell>
+                </row>
+                <row>
+                    <cell>Q3 2026</cell>
+                    <cell>AI Integration</cell>
+                    <cell>APAC Market Entry</cell>
+                    <cell>Double Engineering</cell>
+                </row>
+            </table>
+            <code language="javascript">
+                // Example AI feature in development
+                async function predictCustomerNeeds(customerData) {
+                const model = await loadPredictionModel();
+                const predictions = model.predict(customerData);
+                return predictions.topRecommendations;
+                }
+            </code>
+        </content>
+        <notes>Emphasize flexibility and data-driven decision making in our roadmap.</notes>
+    </slide>
+
+    <slide id="closing" type="section">
+        <title>Thank You</title>
+        <content>
+            <p>Ready to democratize e-commerce?</p>
+            <p>Contact: <a href="mailto:werner@zsell.ai">werner@zsell.ai</a> | (832) 933-3573</p>
+            <p><a href="https://zsell.ai" target="_blank" rel="noopener">www.zsell.ai</a></p>
+            <row class="mt-5">
+                <col>
+                    <card>
+                        <body>
+                            <p class="text-center fs-4">Questions?</p>
+                        </body>
+                    </card>
+                </col>
+            </row>
+        </content>
+        <notes>Open the floor for questions. Have backup slides ready for detailed financial projections if requested.</notes>
+    </slide>
+
+</presentation>

@@ -1,0 +1,565 @@
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<presentation id="semantic-components-demo" theme="light">
+  <metadata>
+    <title>Semantic Components Demo</title>
+    <author>XML Presentation System</author>
+    <brand>
+      <color name="primary">#0d6efd</color>
+      <color name="secondary">#6c757d</color>
+      <color name="accent">#20c997</color>
+      <color name="background">#ffffff</color>
+    </brand>
+  </metadata>
+  
+  <!-- Slide 1: Title Slide -->
+  <slide id="title-slide" type="title">
+    <heading level="1" emphasis="primary" alignment="center">Semantic Components Demo</heading>
+    <paragraph type="lead" alignment="center">Showcasing semantic XML components with Bootstrap styling</paragraph>
+    <notes>
+      This presentation demonstrates the various semantic components available in our XML presentation system. Each slide showcases different components and their semantic attributes.
+    </notes>
+  </slide>
+  
+  <!-- Slide 2: Text Components Overview -->
+  <slide id="text-components" type="section">
+    <heading level="2" emphasis="primary" alignment="center">Text Components</heading>
+    <paragraph type="lead">Semantic components for structuring your textual content</paragraph>
+  </slide>
+  
+  <!-- Slide 3: Headings Showcase -->
+  <slide id="headings-demo" type="standard">
+    <heading level="2" emphasis="primary">Heading Components</heading>
+    <paragraph>Different levels of headings with semantic emphasis:</paragraph>
+    
+    <container>
+      <row>
+        <column width="6">
+          <heading level="1" emphasis="primary">Heading Level 1</heading>
+          <heading level="2" emphasis="secondary">Heading Level 2</heading>
+          <heading level="3">Heading Level 3</heading>
+        </column>
+        <column width="6">
+          <heading level="4" emphasis="muted">Heading Level 4</heading>
+          <heading level="5">Heading Level 5</heading>
+          <heading level="6" emphasis="secondary">Heading Level 6</heading>
+        </column>
+      </row>
+    </container>
+    
+    <paragraph type="small" emphasis="muted">Headings use the level attribute (1-6) to indicate importance and can have different emphasis types: primary, secondary, or muted.</paragraph>
+  </slide>
+  
+  <!-- Slide 4: Paragraph Types -->
+  <slide id="paragraph-demo" type="standard">
+    <heading level="2" emphasis="primary">Paragraph Components</heading>
+    
+    <paragraph type="lead">This is a lead paragraph. It stands out as an introduction to the content and draws attention.</paragraph>
+    
+    <paragraph>This is a standard paragraph with normal importance. It forms the bulk of your textual content and provides detailed information to your audience.</paragraph>
+    
+    <paragraph type="small" emphasis="muted">This is a small, muted paragraph typically used for footnotes, attributions, or supplementary information that is less important than the main content.</paragraph>
+    
+    <paragraph emphasis="strong">This paragraph has strong emphasis applied to it, making the entire text stand out with increased visual weight.</paragraph>
+  </slide>
+  
+  <!-- Slide 5: Blockquote and Text Emphasis -->
+  <slide id="blockquote-highlight-demo" type="standard">
+    <heading level="2" emphasis="primary">Blockquotes & Text Emphasis</heading>
+    
+    <container>
+      <row>
+        <column width="6">
+          <blockquote style="standard" alignment="left">
+            <content>Design is not just what it looks like and feels like. Design is how it works.</content>
+            <source>Steve Jobs</source>
+          </blockquote>
+          
+          <blockquote style="highlighted" alignment="center">
+            <content>Simplicity is the ultimate sophistication.</content>
+            <source>Leonardo da Vinci</source>
+          </blockquote>
+        </column>
+        
+        <column width="6">
+          <paragraph>Text can include <highlight type="mark" color="warning">highlighted important concepts</highlight> to draw attention to key points.</paragraph>
+          
+          <paragraph>You can also use <highlight type="strong">strong emphasis</highlight> or <highlight type="em">subtle emphasis</highlight> to enhance your message.</paragraph>
+          
+          <paragraph>For technical terms, use <highlight type="underline">underlined text</highlight> or <code type="inline">inline code snippets</code> as needed.</paragraph>
+        </column>
+      </row>
+    </container>
+  </slide>
+  
+  <!-- Slide 6: Code Blocks -->
+  <slide id="code-demo" type="standard">
+    <heading level="2" emphasis="primary">Code Components</heading>
+    <paragraph>Syntax-highlighted code blocks with line numbers:</paragraph>
+    
+    <code type="block" language="javascript" numbered="true">
+// Initialize the chart
+function createChart(chartData) {
+  const ctx = document.getElementById('myChart').getContext('2d');
+  
+  return new Chart(ctx, {
+    type: 'bar',
+    data: chartData,
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: 'top' }
+      }
+    }
+  });
+}
+    </code>
+    
+    <paragraph>You can also use <code type="inline">inline code</code> for referencing variables, functions, or short code snippets within text.</paragraph>
+  </slide>
+  
+  <!-- Slide 7: Lists -->
+  <slide id="lists-demo" type="standard">
+    <heading level="2" emphasis="primary">List Components</heading>
+    
+    <container>
+      <row>
+        <column width="6">
+          <heading level="4">Unordered List</heading>
+          <list type="unordered">
+            <item>First bullet point</item>
+            <item>Second bullet point with nested items
+              <list type="unordered">
+                <item>Nested item one</item>
+                <item>Nested item two</item>
+              </list>
+            </item>
+            <item>Third bullet point</item>
+          </list>
+          
+          <heading level="4">Definition List</heading>
+          <list type="definition">
+            <term>HTML</term>
+            <definition>HyperText Markup Language, the standard markup language for documents designed to be displayed in a web browser.</definition>
+            <term>CSS</term>
+            <definition>Cascading Style Sheets, a style sheet language used for describing the presentation of a document written in a markup language like HTML.</definition>
+          </list>
+        </column>
+        
+        <column width="6">
+          <heading level="4">Ordered List</heading>
+          <list type="ordered">
+            <item>First step in the process</item>
+            <item>Second step in the process</item>
+            <item>Third step in the process</item>
+          </list>
+          
+          <heading level="4">Checklist</heading>
+          <list type="checklist">
+            <item checked="true">Completed task</item>
+            <item checked="true">Another finished item</item>
+            <item checked="false">Pending task</item>
+            <item checked="false">Future task</item>
+          </list>
+        </column>
+      </row>
+    </container>
+  </slide>
+  
+  <!-- Slide 8: Tables -->
+  <slide id="tables-demo" type="standard">
+    <heading level="2" emphasis="primary">Table Components</heading>
+    <paragraph>Tables with semantic styling options:</paragraph>
+    
+    <table type="data" style="striped" responsive="true">
+      <header>
+        <cell>Product</cell>
+        <cell>Category</cell>
+        <cell>Price</cell>
+        <cell>Stock</cell>
+      </header>
+      <row>
+        <cell>Premium Widget</cell>
+        <cell>Gadgets</cell>
+        <cell>$199.99</cell>
+        <cell>45</cell>
+      </row>
+      <row>
+        <cell>Basic Widget</cell>
+        <cell>Gadgets</cell>
+        <cell>$99.99</cell>
+        <cell>128</cell>
+      </row>
+      <row>
+        <cell>Super Gadget Pro</cell>
+        <cell>Electronics</cell>
+        <cell>$349.99</cell>
+        <cell>15</cell>
+      </row>
+      <row>
+        <cell>Budget Gadget</cell>
+        <cell>Electronics</cell>
+        <cell>$49.99</cell>
+        <cell>200+</cell>
+      </row>
+    </table>
+    
+    <paragraph type="small" emphasis="muted">Tables support various style options: striped, bordered, hover, and compact.</paragraph>
+  </slide>
+  
+  <!-- Slide 9: Media Components Overview -->
+  <slide id="media-components" type="section">
+    <heading level="2" emphasis="primary" alignment="center">Media Components</heading>
+    <paragraph type="lead">Semantic components for images, videos, and other media</paragraph>
+  </slide>
+  
+  <!-- Slide 10: Images -->
+  <slide id="images-demo" type="standard">
+    <heading level="2" emphasis="primary">Image Components</heading>
+    
+    <container>
+      <row>
+        <column width="4">
+          <image src="assets/images/sample1.jpg" importance="primary" size="full" shape="default" position="center" shadow="light" alt="Sample image with default shape">
+            <caption>Default image with light shadow</caption>
+          </image>
+        </column>
+        
+        <column width="4">
+          <image src="assets/images/sample2.jpg" importance="secondary" size="full" shape="rounded" position="center" shadow="medium" alt="Sample image with rounded corners">
+            <caption>Rounded image with medium shadow</caption>
+          </image>
+        </column>
+        
+        <column width="4">
+          <image src="assets/images/sample3.jpg" importance="secondary" size="full" shape="circle" position="center" shadow="strong" alt="Sample image with circle shape">
+            <caption>Circular image with strong shadow</caption>
+          </image>
+        </column>
+      </row>
+    </container>
+    
+    <paragraph type="small" emphasis="muted">Images can have different shapes (default, rounded, circle), shadows (light, medium, strong), and sizes (small, medium, large, full).</paragraph>
+  </slide>
+  
+  <!-- Slide 11: Figures and Videos -->
+  <slide id="figures-videos-demo" type="standard">
+    <heading level="2" emphasis="primary">Figures & Video Components</heading>
+    
+    <container>
+      <row>
+        <column width="6">
+          <figure style="bordered">
+            <image src="assets/images/sample-figure.jpg" alt="Product screenshot"/>
+            <caption position="below">Figure with caption below - Bordered style</caption>
+          </figure>
+        </column>
+        
+        <column width="6">
+          <video src="assets/videos/sample.mp4" controls="true" loop="false" aspect="16:9">
+            <caption>Responsive video with 16:9 aspect ratio</caption>
+          </video>
+        </column>
+      </row>
+    </container>
+  </slide>
+  
+  <!-- Slide 12: Icons and Avatars -->
+  <slide id="icons-avatars-demo" type="standard">
+    <heading level="2" emphasis="primary">Icons & Avatars</heading>
+    
+    <container>
+      <row>
+        <column width="6">
+          <heading level="4">Semantic Icons</heading>
+          <paragraph>
+            <icon type="info" size="small" /> Info (small) 
+            <icon type="warning" size="medium" /> Warning (medium)
+            <icon type="success" size="large" /> Success (large)
+            <icon type="error" size="medium" /> Error (medium)
+          </paragraph>
+          
+          <paragraph>Icons with tooltips: 
+            <icon type="info" size="medium" tooltip="Shows information" tooltip-position="top" />
+            <icon type="warning" size="medium" tooltip="Indicates a warning" tooltip-position="right" />
+          </paragraph>
+        </column>
+        
+        <column width="6">
+          <heading level="4">Avatar Components</heading>
+          <paragraph>
+            <avatar src="assets/images/avatar1.jpg" size="small" shape="circle" alt="Small circle avatar" />
+            <avatar src="assets/images/avatar2.jpg" size="medium" shape="rounded" alt="Medium rounded avatar" />
+            <avatar src="assets/images/avatar3.jpg" size="large" shape="square" alt="Large square avatar" />
+          </paragraph>
+        </column>
+      </row>
+    </container>
+  </slide>
+  
+  <!-- Slide 13: Data Visualization Overview -->
+  <slide id="data-viz-components" type="section">
+    <heading level="2" emphasis="primary" alignment="center">Data Visualization</heading>
+    <paragraph type="lead">Semantic components for presenting data and statistics</paragraph>
+  </slide>
+  
+  <!-- Slide 14: Charts -->
+  <slide id="charts-demo" type="standard">
+    <heading level="2" emphasis="primary">Chart Components</heading>
+    
+    <container>
+      <row>
+        <column width="6">
+          <chart type="bar" style="gradient" legend="true" animation="true">
+            <title>Quarterly Revenue</title>
+            <data>
+              <labels>Q1, Q2, Q3, Q4</labels>
+              <dataset label="2024" values="10, 25, 30, 40" color="primary"/>
+              <dataset label="2023" values="8, 21, 25, 33" color="secondary"/>
+            </data>
+          </chart>
+        </column>
+        
+        <column width="6">
+          <chart type="pie" style="standard" legend="true" animation="true">
+            <title>Market Share</title>
+            <data>
+              <labels>Product A, Product B, Product C, Others</labels>
+              <dataset label="2024" values="45, 30, 15, 10" color="primary"/>
+            </data>
+          </chart>
+        </column>
+      </row>
+    </container>
+    
+    <paragraph type="small" emphasis="muted">Charts support multiple types (bar, line, pie, radar, polar, scatter) with legends, animations, and custom styling.</paragraph>
+  </slide>
+  
+  <!-- Slide 15: Progress and Statistics -->
+  <slide id="progress-stats-demo" type="standard">
+    <heading level="2" emphasis="primary">Progress & Statistics</heading>
+    
+    <container>
+      <row>
+        <column width="6">
+          <heading level="4">Progress Indicators</heading>
+          
+          <progress type="bar" status="success" value="75" striped="true" animated="false">
+            <label>Project completion (75%)</label>
+          </progress>
+          
+          <progress type="bar" status="warning" value="45" striped="true" animated="true">
+            <label>Budget utilization (45%)</label>
+          </progress>
+          
+          <progress type="bar" status="danger" value="90" striped="false" animated="false">
+            <label>Resource allocation (90%)</label>
+          </progress>
+        </column>
+        
+        <column width="6">
+          <heading level="4">Key Statistics</heading>
+          
+          <statistic type="percentage" trend="up" emphasis="strong">
+            <value>42%</value>
+            <label>Increase in conversion rate</label>
+            <description>Compared to previous quarter</description>
+          </statistic>
+          
+          <statistic type="number" trend="down" emphasis="normal">
+            <value>1,234</value>
+            <label>Monthly active users</label>
+            <description>5% decrease from April</description>
+          </statistic>
+        </column>
+      </row>
+    </container>
+  </slide>
+  
+  <!-- Slide 16: Timeline and Comparison -->
+  <slide id="timeline-comparison-demo" type="standard">
+    <heading level="2" emphasis="primary">Timelines & Comparisons</heading>
+    
+    <container>
+      <row>
+        <column width="6">
+          <heading level="4">Vertical Timeline</heading>
+          
+          <timeline layout="vertical" markers="dots" alternating="true">
+            <event date="2020">
+              <title>Company Founded</title>
+              <description>Our journey began in a small garage</description>
+            </event>
+            <event date="2022">
+              <title>Series A Funding</title>
+              <description>Secured $5M in venture capital</description>
+            </event>
+            <event date="2024">
+              <title>International Expansion</title>
+              <description>Opened offices in 5 new countries</description>
+            </event>
+          </timeline>
+        </column>
+        
+        <column width="6">
+          <heading level="4">Side-by-Side Comparison</heading>
+          
+          <comparison layout="side-by-side" style="detailed">
+            <title>Pricing Plans</title>
+            <item side="left">
+              <title>Basic Plan</title>
+              <features>
+                <feature>10 GB Storage</feature>
+                <feature>2 Users</feature>
+                <feature available="false">Custom Domain</feature>
+              </features>
+              <price>$9.99/mo</price>
+            </item>
+            <item side="right">
+              <title>Premium Plan</title>
+              <features>
+                <feature>100 GB Storage</feature>
+                <feature>10 Users</feature>
+                <feature available="true">Custom Domain</feature>
+              </features>
+              <price>$29.99/mo</price>
+            </item>
+          </comparison>
+        </column>
+      </row>
+    </container>
+  </slide>
+  
+  <!-- Slide 17: Interactive Elements Overview -->
+  <slide id="interactive-components" type="section">
+    <heading level="2" emphasis="primary" alignment="center">Interactive Elements</heading>
+    <paragraph type="lead">Semantic components for enhancing user engagement</paragraph>
+  </slide>
+  
+  <!-- Slide 18: Callouts -->
+  <slide id="callouts-demo" type="standard">
+    <heading level="2" emphasis="primary">Callout Components</heading>
+    
+    <callout type="tip" style="bordered" icon="true">
+      <title>Pro Tip</title>
+      <content>Use keyboard shortcuts to navigate between slides quickly. Press Space or Right Arrow to advance.</content>
+    </callout>
+    
+    <callout type="note" style="standard" icon="true">
+      <title>Note</title>
+      <content>Semantic components automatically adapt to light and dark themes based on your presentation settings.</content>
+    </callout>
+    
+    <callout type="warning" style="filled" icon="true">
+      <title>Warning</title>
+      <content>Always save your presentation XML files frequently to prevent data loss during editing.</content>
+    </callout>
+    
+    <callout type="important" style="bordered" icon="true">
+      <title>Important</title>
+      <content>The presentation system requires a web server to function properly due to AJAX requests for XML/XSL loading.</content>
+    </callout>
+  </slide>
+  
+  <!-- Slide 19: Cards -->
+  <slide id="cards-demo" type="standard">
+    <heading level="2" emphasis="primary">Card Components</heading>
+    
+    <container>
+      <row>
+        <column width="4">
+          <card importance="primary" layout="standard" interactive="true">
+            <image src="assets/images/feature1.jpg" position="top" alt="Feature 1" />
+            <title>Key Feature One</title>
+            <content>Description of the amazing feature that solves customer problems.</content>
+            <footer>
+              <button type="primary">Learn More</button>
+            </footer>
+          </card>
+        </column>
+        
+        <column width="4">
+          <card importance="secondary" layout="standard" interactive="true">
+            <image src="assets/images/feature2.jpg" position="top" alt="Feature 2" />
+            <title>Key Feature Two</title>
+            <content>Another great feature that provides significant value to users.</content>
+            <footer>
+              <button type="secondary">Explore</button>
+            </footer>
+          </card>
+        </column>
+        
+        <column width="4">
+          <card importance="tertiary" layout="standard" interactive="true">
+            <image src="assets/images/feature3.jpg" position="top" alt="Feature 3" />
+            <title>Key Feature Three</title>
+            <content>The third amazing capability that sets your product apart.</content>
+            <footer>
+              <button type="success">Get Started</button>
+            </footer>
+          </card>
+        </column>
+      </row>
+    </container>
+  </slide>
+  
+  <!-- Slide 20: Alerts and Badges -->
+  <slide id="alerts-badges-demo" type="standard">
+    <heading level="2" emphasis="primary">Alerts & Badges</heading>
+    
+    <heading level="4">Alert Components</heading>
+    
+    <alert type="info" dismissible="true" icon="true">
+      <content>This is an informational alert with an icon that can be dismissed.</content>
+    </alert>
+    
+    <alert type="success" dismissible="false" icon="true">
+      <content>Operation completed successfully! All changes have been saved.</content>
+    </alert>
+    
+    <alert type="warning" dismissible="true" icon="true">
+      <content>Please note that these figures are projections and may vary based on market conditions.</content>
+    </alert>
+    
+    <alert type="danger" dismissible="false" icon="true">
+      <content>Critical error encountered. Please contact support with error code XP-1234.</content>
+    </alert>
+    
+    <heading level="4" emphasis="secondary">Badge Components</heading>
+    
+    <paragraph>
+      Product status: 
+      <badge type="success" size="normal" pill="false">Available</badge>
+      <badge type="warning" size="normal" pill="true">Limited</badge>
+      <badge type="danger" size="normal" pill="true">Sold Out</badge>
+    </paragraph>
+    
+    <paragraph>
+      Feature labels:
+      <badge type="primary" size="small" pill="false">Core</badge>
+      <badge type="info" size="small" pill="false">New</badge>
+      <badge type="secondary" size="small" pill="false">Beta</badge>
+      <badge type="light" size="large" pill="true">Premium</badge>
+    </paragraph>
+  </slide>
+  
+  <!-- Slide 21: Conclusion -->
+  <slide id="conclusion" type="section">
+    <heading level="2" emphasis="primary" alignment="center">Semantic Component System</heading>
+    <paragraph type="lead" alignment="center">Creating beautiful presentations with clean, semantic XML</paragraph>
+    
+    <callout type="tip" style="filled" icon="true">
+      <title>Key Benefits</title>
+      <content>
+        <list type="unordered">
+          <item>Clear separation of content and presentation</item>
+          <item>Consistent styling across your presentation</item>
+          <item>Focus on meaning rather than appearance</item>
+          <item>Responsive design that works on all devices</item>
+          <item>Accessible content with semantic structure</item>
+        </list>
+      </content>
+    </callout>
+  </slide>
+</presentation>
+```
